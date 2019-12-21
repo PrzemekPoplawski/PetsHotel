@@ -1,0 +1,28 @@
+﻿@model PetsHotel.webapp.ViewModels.Home.UserViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+        {
+            <p>Imie:</p><br>
+            <p>@Html.TextBoxFor(x=>x.FirstName)</p><br />
+            <p>Nazwisko:</p><br />
+            <p>@Html.TextBoxFor(x=>x.LastName)</p><br />
+            <p>Adres:</p><br />
+            <p>@Html.TextBoxFor(x=>x.Adres)</p><br /><br />
+
+            <input type="submit" value="zapisz" />
+        }
+    </div>
+</body>
+</html>
