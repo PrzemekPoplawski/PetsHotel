@@ -1,0 +1,28 @@
+﻿@model PetsHotel.webapp.ViewModels.Account.SignInViewModel
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Sign In</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(m => m.Login, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>   
+        
+}
+
+

@@ -17,7 +17,6 @@ namespace PetsHotel.webapp.ViewModels.Account
         public string Login { get; set; }
         [Display(Name = "Hasło: ")]
         [Required]
-
         [MinLength(6,ErrorMessage = "Hasło musi być dłuższe niż 6 znaków")]
         public string Password { get; set; }
         [Display(Name = "Potwierdz hasło: ")]

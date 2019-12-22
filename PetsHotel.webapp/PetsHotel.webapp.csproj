@@ -151,6 +151,7 @@
     <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\UserService.cs" />
+    <Compile Include="ViewModels\Account\SignInViewModel.cs" />
     <Compile Include="ViewModels\Account\SignUpViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +192,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\UserList.cshtml" />
     <Content Include="Views\Account\Add.cshtml" />
+    <Content Include="Views\Account\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

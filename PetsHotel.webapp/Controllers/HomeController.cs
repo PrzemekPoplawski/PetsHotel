@@ -45,20 +45,6 @@ namespace PetsHotel.webapp.Controllers
            
         }
     }
-    // Entity
-
-    // LoginEntity
-    // UserEntity
-    //
-
-
-    //REPOZYTORUM 
-    // CRUD
-    // Repository.cs
-
-    // Repositories
-    // Reposiotry.cs
-    // IRepository.cs
-    // CREATE DELETE UPDATE READ
+    
     
 }

@@ -35,12 +35,26 @@ namespace PetsHotel.webapp.Controllers
             {
                 return View("Add");
             }
-            // personEntity -> ID
-            // new userEntity -> 
+
             _loginService.CreateLogin(model.Login, model.Password, model.Email);
             
       
             return View();
         }
+
+        [HttpGet]
+        public ActionResult SignIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignIn(SignInViewModel model)
+        {
+
+        }
+
+
+
     }
 }
