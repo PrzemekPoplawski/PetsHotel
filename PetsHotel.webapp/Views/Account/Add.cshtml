@@ -1,4 +1,4 @@
-﻿@model PetsHotel.webapp.ViewModels.Home.UserViewModel
+﻿@model PetsHotel.webapp.ViewModels.Account.SignUpViewModel
 @{
     Layout = null;
 }
@@ -11,17 +11,21 @@
     <title>Add</title>
 </head>
 <body>
-    <div> 
+    <div>
         @using (Html.BeginForm())
         {
-            <p>Imie:</p><br>
-            <p>@Html.TextBoxFor(x=>x.FirstName)</p><br />
-            <p>Nazwisko:</p><br />
-            <p>@Html.TextBoxFor(x=>x.LastName)</p><br />
-            <p>Adres:</p><br />
-            <p>@Html.TextBoxFor(x=>x.Adres)</p><br /><br />
+        @Html.ValidationSummary();
+        <p>@Html.LabelFor(x=>x.Login):</p><br>
+        <p>@Html.TextBoxFor(x=>x.Login)</p><br />
+        <p>@Html.LabelFor(x=>x.Email):</p><br />
+        <p>@Html.TextBoxFor(x=>x.Email)</p><br />
+        <p>@Html.LabelFor(x=>x.Password):</p><br />
+        <p>@Html.PasswordFor(x=>x.Password)</p><br /><br />
 
-            <input type="submit" value="zapisz" />
+        <p>@Html.LabelFor(x=>x.ConfirmPassword):</p><br />
+        <p>@Html.TextBoxFor(x=>x.ConfirmPassword)</p><br /><br />
+
+        <input type="submit" value="zapisz" />
         }
     </div>
 </body>

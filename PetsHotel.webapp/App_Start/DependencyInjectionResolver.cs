@@ -19,6 +19,7 @@ namespace PetsHotel.webapp.App_Start
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
+            builder.RegisterType<LoginService>().As<ILoginService>();
 
 
             var container = builder.Build();

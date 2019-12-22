@@ -26,7 +26,7 @@ namespace PetsHotel.webapp.Repositories
 
         public IQueryable<TEntity> GetAllValues()
         {
-            var res = from values in db.
+            var res = from values in dbSet
                       select values;
             return res;
                      

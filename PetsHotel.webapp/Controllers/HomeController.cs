@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PetsHotel.webapp.Service;
-using PetsHotel.webapp.ViewModels.Home;
 
 namespace PetsHotel.webapp.Controllers
 {
@@ -25,29 +24,7 @@ namespace PetsHotel.webapp.Controllers
         public ActionResult UserList()
         {
             
-            var model = new List<UserViewModel>
-            {
-                new UserViewModel
-                {
-                    FirstName = "Przemo",
-                LastName = "Popławski",
-                Adres = "Wola"
-                },
-                new UserViewModel
-                {
-                    FirstName = "Przemo",
-                LastName = "Popławski",
-                Adres = "Wola"
-                }
-                ,new UserViewModel
-                {
-                    FirstName = "Przemo",
-                LastName = "Popławski",
-                Adres = "Wola"
-                }
-
-            };
-            return View(model);
+            return View();
         }
 
 
@@ -56,13 +33,6 @@ namespace PetsHotel.webapp.Controllers
             ViewBag.Message = "Your application description page.";
 
             var users = _userService.GetAllUsers();
-
-            var model = new UserViewModel()
-            {
-                FirstName = "Michał",
-                LastName = "Wojciechowski",
-                UserId = 1
-            };
 
             return View();
         }

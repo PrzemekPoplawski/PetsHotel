@@ -1,7 +1,7 @@
 ﻿using PetsHotel.webapp.Entity;
 using PetsHotel.webapp.Repositories;
 using PetsHotel.webapp.Service;
-using PetsHotel.webapp.ViewModels.Home;
+using PetsHotel.webapp.ViewModels.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +13,14 @@ namespace PetsHotel.webapp.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly ILoginService _loginService;
 
-        public AccountController(IUserService service)
+        public AccountController(IUserService userService, ILoginService loginService)
         {
-            service = _userService;
+            _userService = userService;
+            _loginService = loginService;
         }
+
 
         [HttpGet]
         public ActionResult Add()
@@ -26,17 +29,18 @@ namespace PetsHotel.webapp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add() 
+        public ActionResult Add(SignUpViewModel model) 
         {
-            var model = new UserViewModel
+            if (!ModelState.IsValid)
             {
-                Adres = _userService.GetAllUsers().Select(p => p.Person_PersonId.Address).ToString(),
-                FirstName = _userService.GetAllUsers().Select(p => p.Person_PersonId.FristName).ToString(),
-                LastName = _userService.GetAllUsers().Select(p => p.Person_PersonId.LastName).ToString(),
-                //UserId = _userService.GetAllUsers().Select(p => p.UserId).
-            };
-
-            return model;
+                return View("Add");
+            }
+            // personEntity -> ID
+            // new userEntity -> 
+            _loginService.CreateLogin(model.Login, model.Password, model.Email);
+            
+      
+            return View();
         }
     }
 }
