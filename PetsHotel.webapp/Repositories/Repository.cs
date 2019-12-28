@@ -41,15 +41,13 @@ namespace PetsHotel.webapp.Repositories
         {
             db.SaveChanges();
         }
-    }
 
-    //public class UserRepository
-    //{
-    //    IQueryable<UserEntity> GetAllUsers()
-    //    {
-    //        var res = from values in db.UserTable
-    //                  select values;
-    //        return res;
-    //    }
-    //}
+        public IQueryable<TEntity> GetAllLogins()
+        {
+            var res = from values in dbSet
+                      select values;
+            return res;
+        }
+
+    }
 }

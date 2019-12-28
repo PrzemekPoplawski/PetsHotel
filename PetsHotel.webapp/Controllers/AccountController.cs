@@ -23,22 +23,21 @@ namespace PetsHotel.webapp.Controllers
 
 
         [HttpGet]
-        public ActionResult Add()
-        {           
+        public ActionResult SignUp()
+        {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Add(SignUpViewModel model) 
+        public ActionResult SignUp(SignUpViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View("Add");
+                return View();
             }
 
             _loginService.CreateLogin(model.Login, model.Password, model.Email);
-            
-      
+
             return View();
         }
 
@@ -51,10 +50,22 @@ namespace PetsHotel.webapp.Controllers
         [HttpPost]
         public ActionResult SignIn(SignInViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(new SignInViewModel() {Login = model.Login});
+            }
 
+            var res = new SignInViewModel();
+
+            if (_loginService.Authenticate(model.Login, model.Password))
+            {
+                res.Login = "Dobrze zalogowany";
+            }
+            else
+            {
+                res.Login = "Żle zalogowany";
+            }
+            return View(res);
         }
-
-
-
     }
 }

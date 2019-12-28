@@ -8,8 +8,10 @@ namespace PetsHotel.webapp.Service
 {
     public interface ILoginService
     {
-        
         void CreateLogin(string userName, string password, string email);
-        
+
+        bool Authenticate(string userName, string password);
+
+        IQueryable<LoginEntity> GetAllLogins();
     }
 }

@@ -10,6 +10,7 @@ namespace PetsHotel.webapp.Repositories
     {
         IQueryable<TEntity> GetAllValues();
         IQueryable<TEntity> GetValueById(int id);
+        IQueryable<TEntity> GetAllLogins();
         void Add(TEntity entity);
         void Save();
     }

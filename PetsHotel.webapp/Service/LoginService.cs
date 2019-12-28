@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PetsHotel.webapp.Entity;
+using PetsHotel.webapp.Models;
 using PetsHotel.webapp.Repositories;
 
 namespace PetsHotel.webapp.Service
@@ -15,8 +16,6 @@ namespace PetsHotel.webapp.Service
         {
             _loginRepository = loginRepository;
         }
-
-       
 
         private static void PasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
@@ -46,6 +45,51 @@ namespace PetsHotel.webapp.Service
             return true;
         }
 
+        public bool Authenticate(string userName, string password)
+        {
+            var login = GetAllLogins().Where(x => x.UserName == userName).FirstOrDefault();
+            
+            if(login == null)
+            {
+                return false;
+            }
+
+            if (!VerifyPasswordHash(password, login.PasswordHash, login.PasswordSalt))
+            {
+                return false;
+            }
+
+            
+            var identity = GetIdentity(login.LoginId);
+            
+            return true;
+        }
+        
+        private Identity GetIdentity(int loginId)
+        {
+            var identity = new Identity();
+            SetIdentity(identity, loginId);
+            
+            return identity;
+        }
+
+        private void SetIdentity(Identity identity, int loginId)
+        {
+            var userData = GetAllLogins().Where(p => p.LoginId == loginId).Select(p => new
+            {
+                Login = p,
+                User = p.User_UserId
+            }).Select(p=> new
+            {
+                UserId = p.User.UserId,
+                Login = p.Login.LoginId,
+                FirstName = p.User.Person_PersonId.FristName
+            }).FirstOrDefault();
+
+            identity.SetId(userData.UserId);
+            identity.SetFirstName(userData.FirstName);
+        }
+
         public void CreateLogin(string userName, string password, string email)
         {
             byte[] passwordHash;
@@ -70,6 +114,11 @@ namespace PetsHotel.webapp.Service
 
             _loginRepository.Add(login);
             _loginRepository.Save();
+        }
+
+        public IQueryable<LoginEntity> GetAllLogins()
+        {
+            return _loginRepository.GetAllValues();
         }
     }   
 }
