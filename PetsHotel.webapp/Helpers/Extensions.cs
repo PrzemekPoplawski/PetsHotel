@@ -27,6 +27,8 @@ namespace PetsHotel.webapp.Helpers
 
         public class Roles
         {
+            private readonly SessionIdentityProvider _identityProvider;
+
             public Roles()
             {
                 var sessionIdentityProvider = new SessionIdentityProvider();
