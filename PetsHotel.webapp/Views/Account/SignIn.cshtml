@@ -1,9 +1,10 @@
-﻿@model PetsHotel.webapp.ViewModels.Account.SignInViewModel
+﻿@using PetsHotel.webapp.Helpers;
+@model PetsHotel.webapp.ViewModels.Account.SignInViewModel
 @{
     ViewBag.Title = "Sign In";
 }
 
-    <h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title.</h2>
 
 
 @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))

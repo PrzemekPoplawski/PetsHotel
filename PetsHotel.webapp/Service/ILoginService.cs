@@ -13,5 +13,7 @@ namespace PetsHotel.webapp.Service
         bool Authenticate(string userName, string password);
 
         IQueryable<LoginEntity> GetAllLogins();
+
+        void LogOut();
     }
 }

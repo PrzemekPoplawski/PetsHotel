@@ -13,10 +13,17 @@ namespace PetsHotel.webapp.Models
         }
         public int ID { get; private set; }
 
-        public void SetFirstName (string firstName)
+        public void SetUserName (string userName)
         {
-            FirstName = firstName;
+            UserName = userName;
         }
-        public string FirstName { get; private set; }
+        public string UserName { get; private set; }
+
+        public int UserTypeId { get; private set; }
+
+        public void SetUserTypeId(int userTypeId)
+        {
+            UserTypeId = userTypeId;
+        }
     }
 }

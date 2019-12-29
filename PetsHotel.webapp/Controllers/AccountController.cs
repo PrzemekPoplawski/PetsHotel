@@ -67,5 +67,12 @@ namespace PetsHotel.webapp.Controllers
             }
             return View(res);
         }
+
+        public ActionResult LogOut()
+        {
+            _loginService.LogOut();
+
+            return View("Index", "Home");
+        }
     }
 }

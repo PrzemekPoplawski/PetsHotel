@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using PetsHotel.webapp.Providers;
 using PetsHotel.webapp.Repositories;
 using PetsHotel.webapp.Service;
 
@@ -20,6 +21,7 @@ namespace PetsHotel.webapp.App_Start
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
             builder.RegisterType<LoginService>().As<ILoginService>();
+            builder.RegisterType<SessionIdentityProvider>().As<IIdentityProvider>();
 
 
             var container = builder.Build();

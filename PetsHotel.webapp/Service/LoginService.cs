@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using PetsHotel.webapp.Entity;
 using PetsHotel.webapp.Models;
+using PetsHotel.webapp.Providers;
 using PetsHotel.webapp.Repositories;
 
 namespace PetsHotel.webapp.Service
@@ -11,11 +12,14 @@ namespace PetsHotel.webapp.Service
     public class LoginService : ILoginService
     {
         private readonly IRepository<LoginEntity> _loginRepository;
+        private readonly IIdentityProvider _identityProvider;
 
-        public LoginService(IRepository<LoginEntity> loginRepository)
+        public LoginService(IRepository<LoginEntity> loginRepository,IIdentityProvider identityProvider)
         {
             _loginRepository = loginRepository;
+            _identityProvider = identityProvider;
         }
+
 
         private static void PasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
@@ -59,8 +63,10 @@ namespace PetsHotel.webapp.Service
                 return false;
             }
 
-            
+            //przypisywanie danych do pustego Identity
             var identity = GetIdentity(login.LoginId);
+            // wpisywanie uzupełnionego modelu do sesji pod kluczem identity
+            _identityProvider.Set("identity", identity);
             
             return true;
         }
@@ -82,12 +88,12 @@ namespace PetsHotel.webapp.Service
             }).Select(p=> new
             {
                 UserId = p.User.UserId,
-                Login = p.Login.LoginId,
+                UserName = p.Login.UserName,
                 FirstName = p.User.Person_PersonId.FristName
             }).FirstOrDefault();
 
             identity.SetId(userData.UserId);
-            identity.SetFirstName(userData.FirstName);
+            identity.SetUserName(userData.UserName);
         }
 
         public void CreateLogin(string userName, string password, string email)
@@ -98,7 +104,8 @@ namespace PetsHotel.webapp.Service
 
             var person = new PersonEntity();
             var user = new UserEntity()
-            { 
+            {
+                UserTypeId = 2,
                 Person_PersonId = person
             };
 
@@ -108,7 +115,6 @@ namespace PetsHotel.webapp.Service
                 PasswordSalt = passwordSalt,
                 UserName = userName,
                 User_UserId = user
-
             };
             login.User_UserId.Person_PersonId.Email = email;
 
@@ -119,6 +125,11 @@ namespace PetsHotel.webapp.Service
         public IQueryable<LoginEntity> GetAllLogins()
         {
             return _loginRepository.GetAllValues();
+        }
+
+        public void LogOut()
+        {
+            _identityProvider.Remove("identity");
         }
     }   
 }

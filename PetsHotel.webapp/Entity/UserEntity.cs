@@ -13,10 +13,16 @@ namespace PetsHotel.webapp.Entity
         [Key]
         public int UserId { get; set; }
         public string UserStatus { get; set; }
-        public string UserTypeId { get; set; }
+        public int UserTypeId { get; set; }
         public int PersonId { get; set; }
 
         [ForeignKey("PersonId")]
         public PersonEntity Person_PersonId { get; set; }
+
+        public enum UserType
+        {
+            Admin = 1,
+            User = 2
+        }
     }
 }
