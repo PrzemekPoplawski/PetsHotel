@@ -17,8 +17,6 @@ namespace PetsHotel.webapp.Helpers
 
             return identityProvider.Get("identity");
 
-            // @Html.IdentityExtension().UserName;
-            //@Html.RoleExtension().IsAdmin
         }
 
         public static Roles RoleExtension(this HtmlHelper html)
@@ -29,25 +27,17 @@ namespace PetsHotel.webapp.Helpers
 
         public class Roles
         {
-            private readonly IIdentityProvider _identityProvider;
-
-            public Roles(IIdentityProvider identityProvider = null)
+            public Roles()
             {
-                if(identityProvider == null)
-                {
-                    _identityProvider = (IIdentityProvider) new SessionIdentityProvider().Get("identity");
-                }
-                else
-                {
-                    _identityProvider = identityProvider;
-                }
+                var sessionIdentityProvider = new SessionIdentityProvider();
+                _identityProvider = sessionIdentityProvider;
             }
 
             private Identity Identity
             {
                 get
                 {
-                    return _identityProvider.Get("identity");
+                    return _identityProvider.Get("identity") ?? new Identity();
                 }
             }
 

@@ -7,5 +7,7 @@ namespace PetsHotel.webapp.Entity
 {
     public class Entity
     {
+        //[Key]
+        //public int Id { get; set; }
     }
 }

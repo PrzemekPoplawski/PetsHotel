@@ -26,9 +26,13 @@
                     <li class="nav-link active">@Html.ActionLink("Główna", "Index", "Home")</li>
                     <li class="nav-link active">@Html.ActionLink("Informacje", "About", "Home")</li>
                     <li class="nav-link active">@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    @if (Html.IdentityExtension()==null)
+                    @if (Html.RolesExtension().IsAdmin)
                     {
-                    <li class="nav-link active" ; style="float:right;">@Html.ActionLink("Zaloguj się", "SignIn", "Account")</li>
+                        <li class="nav-link active">@Html.ActionLink("USTAWIENIA ADMINA", "Contact", "Home")</li>
+                    }
+                    @if (Html.IdentityExtension() == null)
+                    {
+                        <li class="nav-link active" ; style="float:right;">@Html.ActionLink("Zaloguj się", "SignIn", "Account")</li>
                     }
                     else
                     {

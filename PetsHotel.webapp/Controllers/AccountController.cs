@@ -57,22 +57,20 @@ namespace PetsHotel.webapp.Controllers
 
             var res = new SignInViewModel();
 
-            if (_loginService.Authenticate(model.Login, model.Password))
+            if (!_loginService.Authenticate(model.Login, model.Password))
             {
-                res.Login = "Dobrze zalogowany";
+                ModelState.AddModelError("wrongLoginData", "Nieprawidłowy login lub hasło.");
+                return View(new SignInViewModel() { Login = model.Login });
             }
-            else
-            {
-                res.Login = "Żle zalogowany";
-            }
-            return View(res);
+            
+            return RedirectToAction("Index","Home");
         }
 
         public ActionResult LogOut()
         {
             _loginService.LogOut();
 
-            return View("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
