@@ -1,0 +1,38 @@
+﻿@using PetsHotel.webapp.Helpers;
+@model PetsHotel.webapp.ViewModels.UsersData;
+@{
+    ViewBag.Title = "UsersData";
+}
+
+<!DOCTYPE html>
+
+@using (Html.BeginForm("UserData", "UsersData", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Wypełnij swoje dane</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(m => m, new { @class = "col-sm-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Log in" class="btn btn-primary mb-2" />
+            </div><br />
+            <p>
+                @Html.ActionLink("Register as a new user", "SignUp")
+            </p>
+        </div>
+    </div>
+
+}

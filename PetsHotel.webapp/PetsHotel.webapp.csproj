@@ -136,6 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserDataController.cs" />
     <Compile Include="Entity\DatabaseContext.cs" />
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\LoginEntity.cs" />
@@ -152,11 +153,14 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Service\ILoginService.cs" />
+    <Compile Include="Service\IUsersDataService.cs" />
     <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Service\UsersDataService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModels\Account\SignInViewModel.cs" />
     <Compile Include="ViewModels\Account\SignUpViewModel.cs" />
+    <Compile Include="ViewModels\UsersData\UserDataViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -197,6 +201,7 @@
     <Content Include="Views\Home\UserList.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\UserData\UsersData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
