@@ -23,12 +23,11 @@ namespace PetsHotel.webapp.Controllers
         }
 
         // GET: UserData
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            var identity = _identityProvider.Get("identity");
-            var model = _loginService.GetAllLogins().Where(p => p.LoginId == identity.LoginId).Select(p=> new EditViewModel
+            var model = _loginService.GetAllLogins().Where(p => p.LoginId == id).Select(p=> new EditViewModel
             {
-                PersonId = identity.PersonId,
+                PersonId = p.User_UserId.Person_PersonId.PersonId,
                 Login = p.UserName,
                 FirstName = p.User_UserId.Person_PersonId.FristName,
                 LastName = p.User_UserId.Person_PersonId.LastName,
@@ -71,6 +70,30 @@ namespace PetsHotel.webapp.Controllers
             return phoneNumber.Replace("-", "").Replace(" ", "").Replace("+", "").Trim();
         }
 
+        //GET
+        public ActionResult List()
+        {
+            //PLAN
+            // LISTA UŻYTKOWNIKÓW JSON RESULT
+            // USER ID, IMIE, NAZWISKO, ROLA, PRZYCISKI EDYTUJ/USUŃ 
+            // NACISKAJAC NA ROLE ROZWINIe NAM SIĘ LISTA
+            // I PO WYBORZE OD RAZU ZAPISZE W BAZIE
+            // BEZ PRZEŁADOWANIA
+            // .ONCHANGE puść ajax.POST(URL, data, ) formacie JSON, JSON RESULT {zapisuje do bazy}
+            //ZADANIA
+            //1. Lista jako widok imie nazwisko rola przyciski edytuj i usuń
+            // kontroler metoda get, widok z listą użytkowników 
+
+            var users = _loginService.GetAllLogins().Select(p => new ShowViewModel {
+                LoginId = p.User_UserId.Person_PersonId.PersonId,
+                FirstName = p.User_UserId.Person_PersonId.FristName,
+                LastName = p.User_UserId.Person_PersonId.LastName,
+                Role = p.User_UserId.UserTypeId
+            }).ToList();
+
+            return View(users);
+
+        }
 
     }
 }

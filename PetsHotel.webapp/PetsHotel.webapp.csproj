@@ -159,6 +159,7 @@
     <Compile Include="ViewModels\Account\SignInViewModel.cs" />
     <Compile Include="ViewModels\Account\SignUpViewModel.cs" />
     <Compile Include="ViewModels\UserData\EditViewModel.cs" />
+    <Compile Include="ViewModels\UserData\ShowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -201,6 +202,7 @@
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\UserData\Edit.cshtml" />
     <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\UserData\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -40,7 +40,7 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="presentation">@Html.ActionLink("Dane konta", "Edit", "UserData")</li>
+                                <li role="presentation">@Html.ActionLink("DaneKonta","Edit","UserData", new { id = @Html.IdentityExtension().LoginId }, null )</li>
                                 @if (Html.RoleExtension().IsAdmin)
                                 {
                                     <li role="presentation">@Html.ActionLink("Lista użytkowników", "UsersList", "UsersData")</li>
