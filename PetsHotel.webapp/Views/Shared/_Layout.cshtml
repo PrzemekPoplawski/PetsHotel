@@ -22,30 +22,28 @@
                 @Html.ActionLink("PetsHotel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav nav-pills">
-                    <li class="nav-link active">@Html.ActionLink("Główna", "Index", "Home")</li>
-                    <li class="nav-link active">@Html.ActionLink("Informacje", "About", "Home")</li>
-                    <li class="nav-link active">@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    @if (Html.RoleExtension().IsAdmin)
-                    {
-                        <li class="nav-link active">@Html.ActionLink("USTAWIENIA ADMINA", "Contact", "Home")</li>
-                    }
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Główna", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     @if (Html.IdentityExtension() == null)
                     {
-                        <li class="nav-link active" ; style="float:right;">@Html.ActionLink("Zaloguj się", "SignIn", "Account")</li>
+                        <li>@Html.ActionLink("Zaloguj się", "SignIn", "Account")</li>
                     }
                     else
                     {
-                        <div class="dropdown" style="float:right">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                        <div class="dropdown" >
+                            <button class="btn btn-secondary btn-lg" type="button" id="menu1" data-toggle="dropdown">
                                 Witaj, @Html.IdentityExtension().UserName
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="presentation">@Html.ActionLink("Dane konta", "UserData", "UsersData")</li>
+                                <li role="presentation">@Html.ActionLink("Dane konta", "Edit", "UserData")</li>
                                 @if (Html.RoleExtension().IsAdmin)
                                 {
-                            <li role="presentation">@Html.ActionLink("Lista użytkowników", "UsersList", "UsersData")</li>
+                                    <li role="presentation">@Html.ActionLink("Lista użytkowników", "UsersList", "UsersData")</li>
                                 }
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>

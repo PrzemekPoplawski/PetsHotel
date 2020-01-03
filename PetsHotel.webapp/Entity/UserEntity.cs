@@ -23,7 +23,6 @@ namespace PetsHotel.webapp.Entity
         {
             User = 2,
             Admin = 3
-            
         }
     }
 }

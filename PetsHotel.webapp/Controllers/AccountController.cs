@@ -28,6 +28,14 @@ namespace PetsHotel.webapp.Controllers
             return View();
         }
 
+
+
+        [HttpGet]
+        public ActionResult Views()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SignUp(SignUpViewModel model)
         {
@@ -54,9 +62,7 @@ namespace PetsHotel.webapp.Controllers
             {
                 return View(new SignInViewModel() {Login = model.Login});
             }
-
-            var res = new SignInViewModel();
-
+            
             if (!_loginService.Authenticate(model.Login, model.Password))
             {
                 ModelState.AddModelError("wrongLoginData", "Nieprawidłowy login lub hasło.");

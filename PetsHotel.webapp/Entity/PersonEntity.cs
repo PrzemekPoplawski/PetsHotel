@@ -21,9 +21,8 @@ namespace PetsHotel.webapp.Entity
 
         public enum SexId
         {
-            Male =0,
-            Female = 1,
-            Unknown = 2
+            Male = 0,
+            Female = 1
         }
     }
 }

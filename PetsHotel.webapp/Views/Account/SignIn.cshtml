@@ -1,41 +1,40 @@
-﻿@using PetsHotel.webapp.Helpers;
+﻿
 @model PetsHotel.webapp.ViewModels.Account.SignInViewModel
+
 @{
-    ViewBag.Title = "Sign In";
+    Layout = null;
 }
 
-<h2>@ViewBag.Title.</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Logowanie</title>
+    <link href="~/Content/SignIn.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
 
-@using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    <h4>Login in</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
+<body class="text-center">
+    @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+    {
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal" style="margin-bottom: 30px;">Zaloguj się</h1>
+            @Html.LabelFor(m => m.Login, new { @class = "sr-only" })
+            @Html.TextBoxFor(m => m.Login, new { @class = "form-control center-block", placeholder = "Login lub Email", autofocus = "autofocus", required = "required" })
 
-<div class="row">
-    <div class="col-md-6 form-group">
-        @Html.LabelFor(m => m.Login, new { @class = "col-sm-2 col-form-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="col-md-6 form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 col-form-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Log in" class="btn btn-primary mb-2" />
-        </div><br />
-        <p>
-            @Html.ActionLink("Register as a new user", "SignUp")
-        </p>
-    </div>
-</div>   
-        
-}
+            @Html.LabelFor(m => m.Password, new { @class = "sr-only" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control center-block", placeholder = "Hasło", required = "true" })
 
-
+            <button class="btn btn-lg btn-primary btn-block" type="submit" , style="margin-top:30px;">Zaloguj</button>
+            <div>
+                <div class="checkbox mb-3">
+                    <label>@Html.ActionLink("Register as a new user", "SignUp")</label>
+                </div>
+            </div>
+            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    }
+    @Scripts.Render("~/bundles/bootstrap")
+    </body>
+</html>

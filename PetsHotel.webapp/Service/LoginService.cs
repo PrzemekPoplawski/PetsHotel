@@ -88,12 +88,19 @@ namespace PetsHotel.webapp.Service
             }).Select(p=> new
             {
                 UserId = p.User.UserId,
+                LoginId = p.Login.LoginId,
+                PersonId = p.User.Person_PersonId.PersonId,
                 UserName = p.Login.UserName,
-                FirstName = p.User.Person_PersonId.FristName
+                FirstName = p.User.Person_PersonId.FristName,
+                LastName = p.User.Person_PersonId.LastName
             }).FirstOrDefault();
 
-            identity.SetId(userData.UserId);
+            identity.SetUserId(userData.UserId);
+            identity.SetLoginId(userData.LoginId);
+            identity.SetPersonId(userData.PersonId);
             identity.SetUserName(userData.UserName);
+            identity.SetFirstName(userData.FirstName);
+            identity.SetLastName(userData.LastName);
         }
 
         public void CreateLogin(string userName, string password, string email)
@@ -114,7 +121,7 @@ namespace PetsHotel.webapp.Service
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 UserName = userName,
-                User_UserId = user
+                User_UserId = user,               
             };
             login.User_UserId.Person_PersonId.Email = email;
 

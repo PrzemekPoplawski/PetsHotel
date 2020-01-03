@@ -22,7 +22,6 @@ namespace PetsHotel.webapp.App_Start
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
             builder.RegisterType<LoginService>().As<ILoginService>();
             builder.RegisterType<SessionIdentityProvider>().As<IIdentityProvider>();
-            builder.RegisterType<UsersDataService>().As<IUsersDataService>();
 
 
             var container = builder.Build();

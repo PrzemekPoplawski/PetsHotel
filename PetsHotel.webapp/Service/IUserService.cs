@@ -10,7 +10,11 @@ namespace PetsHotel.webapp.Service
     public interface IUserService
     {
         IQueryable<UserEntity> GetAllUsers();
+        IQueryable<PersonEntity> GetAllPersons();
+        void AddPerson(PersonEntity entity);
         void AddUser(UserEntity entity);
+
+        void Save();
 
     }
 }
