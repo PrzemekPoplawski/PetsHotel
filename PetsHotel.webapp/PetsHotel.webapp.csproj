@@ -137,11 +137,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserDataController.cs" />
+    <Compile Include="Entity\AnimalEntity.cs" />
     <Compile Include="Entity\DatabaseContext.cs" />
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\LoginEntity.cs" />
     <Compile Include="Entity\PersonEntity.cs" />
     <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Entity\User2AnimalEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

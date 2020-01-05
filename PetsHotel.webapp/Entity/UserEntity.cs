@@ -24,5 +24,7 @@ namespace PetsHotel.webapp.Entity
             User = 2,
             Admin = 3
         }
+        
+        ICollection<User2AnimalEntity> Animals { get; set; }
     }
 }

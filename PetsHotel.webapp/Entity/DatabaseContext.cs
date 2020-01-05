@@ -18,5 +18,7 @@ namespace PetsHotel.webapp.Entity
         public virtual DbSet<UserEntity> UserTable { get; set; }
         public virtual DbSet<PersonEntity> PersonTable { get; set; }
         public virtual DbSet<LoginEntity> LoginTable { get; set; }
+        public virtual DbSet<AnimalEntity> AnimalTable { get; set; }
+        public virtual DbSet<User2AnimalEntity> User2AnimalTable { get; set; }
     }
 }
