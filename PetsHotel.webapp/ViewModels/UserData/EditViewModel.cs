@@ -23,35 +23,27 @@ namespace PetsHotel.webapp.ViewModels.UserData
         public string PhoneNumber { get; set; }
         [Display(Name = "Płeć")]
         [Required(ErrorMessage = "Pole {0} jest wymagane")]
-        public string SexCode { get; set; }
+        public byte SexCode { get; set; }
         [Display(Name = "Adres:")]
         [Required(ErrorMessage = "Pole {0} jest wymagane")]
         public string Address { get; set; }
         [Display(Name = "Rola")]
         [Required(ErrorMessage = "Pole {0} jest wymagane")]
-        public string Role { get; set; }
+        public int RoleId { get; set; }
 
         public IEnumerable<SelectListItem> Roles
         {
             get
             {
-                return new List<SelectListItem>
-                {
-                    new SelectListItem{Value = "2", Text = "User"},
-                    new SelectListItem{Value = "3", Text = "Admin"}
-                };
+                return new SelectList(new Dictionary<int, string> { { 2, "User" }, { 3, "Admin" } }, "Key", "Value");
             }
         }
-        public IEnumerable<SelectListItem> SexOptions {
+        public IEnumerable<SelectListItem> SexOptions
+        {
             get
             {
-                return new List<SelectListItem>
-                {
-                    new SelectListItem{ Value = "1", Text = "Mężczyzna"},
-                    new SelectListItem{ Value = "2", Text = "Kobieta"}
-                };
-            } }
-
+                return new SelectList(new Dictionary<byte, string> {{ 1, "Mężyczyzna" },{ 2, "Kobieta" }}, "Key", "Value");
+            }
+        }
     }
-
 }

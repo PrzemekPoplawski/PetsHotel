@@ -22,41 +22,38 @@ namespace PetsHotel.webapp.Helpers
         public static Roles RoleExtension(this HtmlHelper html)
         {
             return new Roles();
+        }       
+    }
+    public class Roles
+    {
+        private readonly IIdentityProvider _identityProvider;
+
+        public Roles(IIdentityProvider identityProvider = null)
+        {
+            _identityProvider = identityProvider ?? new SessionIdentityProvider();
         }
 
-
-        public class Roles
+        private Identity Identity
         {
-            private readonly SessionIdentityProvider _identityProvider;
-
-            public Roles()
+            get
             {
-                var sessionIdentityProvider = new SessionIdentityProvider();
-                _identityProvider = sessionIdentityProvider;
+                return _identityProvider.Get("identity") ?? new Identity();
             }
+        }
 
-            private Identity Identity
+        public bool IsAdmin
+        {
+            get
             {
-                get
-                {
-                    return _identityProvider.Get("identity") ?? new Identity();
-                }
+                return Identity.UserTypeId == (int)UserEntity.UserType.Admin;
             }
+        }
 
-            public bool IsAdmin
+        public bool IsUser
+        {
+            get
             {
-                get
-                {
-                    return Identity.UserTypeId == (int)UserEntity.UserType.Admin;
-                }
-            }
-
-            public bool IsUser
-            {
-                get
-                {
-                    return Identity.UserTypeId == (int)UserEntity.UserType.User;
-                }
+                return Identity.UserTypeId == (int)UserEntity.UserType.User;
             }
         }
     }

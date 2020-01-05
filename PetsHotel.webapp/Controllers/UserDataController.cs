@@ -5,7 +5,7 @@ using PetsHotel.webapp.ViewModels.UserData;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Collections.Generic;
+using PetsHotel.webapp.Helpers;
 
 namespace PetsHotel.webapp.Controllers
 {
@@ -22,6 +22,14 @@ namespace PetsHotel.webapp.Controllers
             _loginService = loginService;
         }
 
+        private Roles _roles;
+        private Roles GetRole()
+        {
+            if (_roles == null)
+                _roles = new Roles(_identityProvider);
+            return _roles;
+        }
+
         // GET: UserData
         public ActionResult Edit(int id)
         {
@@ -34,10 +42,8 @@ namespace PetsHotel.webapp.Controllers
                 Email = p.User_UserId.Person_PersonId.Email,
                 Address = p.User_UserId.Person_PersonId.Address,
                 PhoneNumber = p.User_UserId.Person_PersonId.PhoneNumber,
-                SexCode = p.User_UserId.Person_PersonId.SexCode.ToString(),
-                Role = p.User_UserId.UserTypeId.ToString()
-                
-                
+                SexCode = p.User_UserId.Person_PersonId.SexCode,
+                RoleId = p.User_UserId.UserTypeId
             }).FirstOrDefault();
 
             return View(model);
@@ -52,11 +58,6 @@ namespace PetsHotel.webapp.Controllers
                 return View();
             }
 
-            byte sexCode;
-            int userTypeId;
-            int.TryParse(model.Role, out userTypeId);
-            byte.TryParse(model.SexCode, out sexCode);
-
             var user = _userService.GetAllUsers().Where(p => p.PersonId == model.PersonId).FirstOrDefault();
             var person  = _userService.GetAllPersons().Where(p => p.PersonId == model.PersonId).FirstOrDefault();
             person.FristName = model.FirstName.Trim();
@@ -64,15 +65,18 @@ namespace PetsHotel.webapp.Controllers
             person.PhoneNumber = PreparePhoneNumber(model.PhoneNumber);
             person.Address = model.Address;
             person.Email = model.Email.Trim();
-            person.SexCode = sexCode;
-            user.UserTypeId = userTypeId;
+            person.SexCode = model.SexCode;
+            user.UserTypeId = model.RoleId;
             
-
             _userService.Save();
+
+            if(GetRole().IsAdmin)
+                return RedirectToAction("List", "UserData");
 
             return RedirectToAction("Index", "Home");
         }
 
+        //do klasy przetwarzania danych ?
         private string PreparePhoneNumber(string phoneNumber)
         {
             return phoneNumber.Replace("-", "").Replace(" ", "").Replace("+", "").Trim();
@@ -91,11 +95,13 @@ namespace PetsHotel.webapp.Controllers
             //ZADANIA
             //1. Lista jako widok imie nazwisko rola przyciski edytuj i usuń
             // kontroler metoda get, widok z listą użytkowników 
-
+           
             var users = _loginService.GetAllLogins().Select(p => new ShowViewModel {
                 LoginId = p.User_UserId.Person_PersonId.PersonId,
                 FirstName = p.User_UserId.Person_PersonId.FristName,
                 LastName = p.User_UserId.Person_PersonId.LastName,
+                RoleId = p.User_UserId.UserTypeId,
+                UserName = p.UserName
                 }).ToList();
 
             return View(users);

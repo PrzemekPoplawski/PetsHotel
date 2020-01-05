@@ -10,7 +10,7 @@ namespace PetsHotel.webapp.Entity
     {
         public DatabaseContext() : base("name=TestDatabase")
         {
-            Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseAlways<DatabaseContext>());
+            Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseIfModelChanges<DatabaseContext>());
         }
 
         //DependencyInjectionResolver
