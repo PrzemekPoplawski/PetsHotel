@@ -143,7 +143,6 @@
     <Compile Include="Entity\LoginEntity.cs" />
     <Compile Include="Entity\PersonEntity.cs" />
     <Compile Include="Entity\UserEntity.cs" />
-    <Compile Include="Entity\User2AnimalEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
