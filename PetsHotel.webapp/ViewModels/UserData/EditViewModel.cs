@@ -27,6 +27,21 @@ namespace PetsHotel.webapp.ViewModels.UserData
         [Display(Name = "Adres:")]
         [Required(ErrorMessage = "Pole {0} jest wymagane")]
         public string Address { get; set; }
+        [Display(Name = "Rola")]
+        [Required(ErrorMessage = "Pole {0} jest wymagane")]
+        public string Role { get; set; }
+
+        public IEnumerable<SelectListItem> Roles
+        {
+            get
+            {
+                return new List<SelectListItem>
+                {
+                    new SelectListItem{Value = "2", Text = "User"},
+                    new SelectListItem{Value = "3", Text = "Admin"}
+                };
+            }
+        }
         public IEnumerable<SelectListItem> SexOptions {
             get
             {

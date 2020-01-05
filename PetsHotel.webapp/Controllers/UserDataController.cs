@@ -34,7 +34,10 @@ namespace PetsHotel.webapp.Controllers
                 Email = p.User_UserId.Person_PersonId.Email,
                 Address = p.User_UserId.Person_PersonId.Address,
                 PhoneNumber = p.User_UserId.Person_PersonId.PhoneNumber,
-                SexCode = p.User_UserId.Person_PersonId.SexCode.ToString()                
+                SexCode = p.User_UserId.Person_PersonId.SexCode.ToString(),
+                Role = p.User_UserId.UserTypeId.ToString()
+                
+                
             }).FirstOrDefault();
 
             return View(model);
@@ -50,8 +53,11 @@ namespace PetsHotel.webapp.Controllers
             }
 
             byte sexCode;
-            byte.TryParse(model.SexCode, out sexCode);           
+            int userTypeId;
+            int.TryParse(model.Role, out userTypeId);
+            byte.TryParse(model.SexCode, out sexCode);
 
+            var user = _userService.GetAllUsers().Where(p => p.PersonId == model.PersonId).FirstOrDefault();
             var person  = _userService.GetAllPersons().Where(p => p.PersonId == model.PersonId).FirstOrDefault();
             person.FristName = model.FirstName.Trim();
             person.LastName = model.LastName.Trim();
@@ -59,6 +65,8 @@ namespace PetsHotel.webapp.Controllers
             person.Address = model.Address;
             person.Email = model.Email.Trim();
             person.SexCode = sexCode;
+            user.UserTypeId = userTypeId;
+            
 
             _userService.Save();
 
@@ -88,8 +96,7 @@ namespace PetsHotel.webapp.Controllers
                 LoginId = p.User_UserId.Person_PersonId.PersonId,
                 FirstName = p.User_UserId.Person_PersonId.FristName,
                 LastName = p.User_UserId.Person_PersonId.LastName,
-                Role = p.User_UserId.UserTypeId
-            }).ToList();
+                }).ToList();
 
             return View(users);
 

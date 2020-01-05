@@ -91,6 +91,7 @@ namespace PetsHotel.webapp.Service
                 LoginId = p.Login.LoginId,
                 PersonId = p.User.Person_PersonId.PersonId,
                 UserName = p.Login.UserName,
+                UserTypeId = p.User.UserTypeId,
                 FirstName = p.User.Person_PersonId.FristName,
                 LastName = p.User.Person_PersonId.LastName
             }).FirstOrDefault();
@@ -101,6 +102,7 @@ namespace PetsHotel.webapp.Service
             identity.SetUserName(userData.UserName);
             identity.SetFirstName(userData.FirstName);
             identity.SetLastName(userData.LastName);
+            identity.SetUserTypeId(userData.UserTypeId);
         }
 
         public void CreateLogin(string userName, string password, string email)
@@ -112,7 +114,7 @@ namespace PetsHotel.webapp.Service
             var person = new PersonEntity();
             var user = new UserEntity()
             {
-                UserTypeId = 2,
+                UserTypeId = 3,
                 Person_PersonId = person
             };
 

@@ -1,4 +1,7 @@
-﻿@model PetsHotel.webapp.ViewModels.UserData.EditViewModel
+﻿@using PetsHotel.webapp.Helpers;
+@model PetsHotel.webapp.ViewModels.UserData.EditViewModel
+
+
 
 @{
     ViewBag.Title = "UsersData";
@@ -62,6 +65,18 @@
                 @Html.TextAreaFor(m => m.Address, new { @class = "form-control" })
             </div>
         </div>
+        @if (Html.RoleExtension().IsAdmin)
+        {
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Role, new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.Role, Model.Roles, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        }
+
         <div class="col-md-4 form-group">
             <div class="form-group" style="float:right">
                 <div class="col-md-offset-2 col-md-10">
