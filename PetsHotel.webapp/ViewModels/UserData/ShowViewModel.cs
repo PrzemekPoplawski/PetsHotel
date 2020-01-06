@@ -20,7 +20,7 @@ namespace PetsHotel.webapp.ViewModels.UserData
                 return new List<SelectListItem>
                 {
                     new SelectListItem{ Value="2", Text="User"},
-                    new SelectListItem{ Value="3", Text="Admin"}
+                    new SelectListItem{ Value="3", Text="Admin", Selected = true}
                 };
             }
         }

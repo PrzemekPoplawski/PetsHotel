@@ -25,6 +25,7 @@ namespace PetsHotel.webapp.Entity
             Admin = 3
         }
         
-        ICollection<User2AnimalEntity> Animals { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ICollection<AnimalEntity> AnimalSet { get; set; }
     }
 }

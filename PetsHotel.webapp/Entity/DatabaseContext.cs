@@ -10,7 +10,7 @@ namespace PetsHotel.webapp.Entity
     {
         public DatabaseContext() : base("name=TestDatabase")
         {
-            Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseIfModelChanges<DatabaseContext>());
+            Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseAlways<DatabaseContext>());
         }
 
         //DependencyInjectionResolver
@@ -19,6 +19,5 @@ namespace PetsHotel.webapp.Entity
         public virtual DbSet<PersonEntity> PersonTable { get; set; }
         public virtual DbSet<LoginEntity> LoginTable { get; set; }
         public virtual DbSet<AnimalEntity> AnimalTable { get; set; }
-        public virtual DbSet<User2AnimalEntity> User2AnimalTable { get; set; }
     }
 }

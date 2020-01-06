@@ -7,6 +7,7 @@ using System.Web;
 
 namespace PetsHotel.webapp.Entity
 {
+    [Table("Animal")]
     public class AnimalEntity
     {
         [Key]
@@ -15,6 +16,7 @@ namespace PetsHotel.webapp.Entity
         public DateTime DataOfBirth { get; set; }
         public int UserId { get; set; }
         public string AnimalName { get; set; }
+
 
         [ForeignKey("UserId")]
         public UserEntity User_UserId { get; set; }
