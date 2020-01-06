@@ -8,13 +8,14 @@ using System.Web;
 namespace PetsHotel.webapp.Entity
 {
     [Table("Animal")]
-    public class AnimalEntity
+    public class AnimalEntity : Entity
     {
         [Key]
         public int AnimalId { get; set; }
         public string AnimalType { get; set; }
         public DateTime DataOfBirth { get; set; }
         public int UserId { get; set; }
+        public string AnimalName { get; set; }
 
 
         [ForeignKey("UserId")]
