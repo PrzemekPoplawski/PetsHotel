@@ -1,0 +1,18 @@
+﻿@model PetsHotel.webapp.ViewModels.Animal.AddAnimalViewModel
+@{
+    ViewBag.title="Dodawanie zwierzaka";
+}
+
+@using (Html.BeginForm("AddAnimal", "Animal", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+{
+    @Html.LabelFor(x=>x.AnimalName, new { @class = "sr-only" })
+    @Html.TextBoxFor(x=>x.AnimalName, new  { @class = "form-control center-block" })
+
+    @Html.LabelFor(x=>x.AnimalType, new  { @class = "sr-only"  })
+    @Html.TextBoxFor(x=>x.AnimalType, new { @class = "form-control center-block" })
+
+    @Html.LabelFor(x=>x.DateOfBirth, new { @class = "sr-only"  })
+    @Html.TextBoxFor(x=>x.DateOfBirth, new  { @class = "form-control center-block"  })
+
+    <input type="submit" class="btn btn-primary mb-2" value="Zapisz" />
+}

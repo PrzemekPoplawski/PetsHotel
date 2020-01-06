@@ -14,6 +14,7 @@ namespace PetsHotel.webapp.Entity
         public string AnimalType { get; set; }
         public DateTime DataOfBirth { get; set; }
         public int UserId { get; set; }
+        public string AnimalName { get; set; }
 
         [ForeignKey("UserId")]
         public UserEntity User_UserId { get; set; }
