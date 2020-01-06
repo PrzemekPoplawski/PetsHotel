@@ -8,7 +8,7 @@ using System.Web;
 namespace PetsHotel.webapp.Entity
 {
     [Table("Animal")]
-    public class AnimalEntity
+    public class AnimalEntity : Entity
     {
         [Key]
         public int AnimalId { get; set; }

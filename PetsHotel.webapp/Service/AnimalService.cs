@@ -9,21 +9,21 @@ namespace PetsHotel.webapp.Service
 {
     public class AnimalService : IAnimalService
     {
-        private readonly IRepository<AnimalEntity> _repository;
+        private readonly IRepository<AnimalEntity> _animalRepository;
 
-        public AnimalService(IRepository<AnimalEntity> repository)
+        public AnimalService(IRepository<AnimalEntity> animalRepository)
         {
-            _repository = repository;
+            _animalRepository = animalRepository;
         }
 
-        public void Add(AnimalEntity entity)
+        public void AddAnimal(AnimalEntity entity)
         {
-            _repository.Add(entity);
+            _animalRepository.Add(entity);
         }
 
         public void Save()
         {
-            _repository.Save();
+            _animalRepository.Save();
         }
     }
 }

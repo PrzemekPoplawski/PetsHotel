@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetsHotel.webapp.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace PetsHotel.webapp.Service
 {
-    interface IAnimalService
+     public interface IAnimalService
     {
-        void Add();
+        void AddAnimal(AnimalEntity entity);
+
         void Save();
     }
 }
