@@ -39,14 +39,23 @@ namespace PetsHotel.webapp.Controllers
         [HttpPost]
         public ActionResult SignUp(SignUpViewModel model)
         {
+            if(IsLoginExist(model.Login))
+                ModelState.AddModelError("LoginExists", "Podany login jest zajęty.");
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
+             _loginService.CreateLogin(model.Login, model.Password, model.Email);
 
-            _loginService.CreateLogin(model.Login, model.Password, model.Email);
+            return RedirectToAction("SignIn", "Account");
+        }
 
-            return View();
+        // wrzucić do osobnej klasy nazwy Utils
+        private bool IsLoginExist(string login)
+        {
+            if (string.IsNullOrEmpty(login)) return false;
+            return _loginService.GetAllLogins().Any(m => m.UserName == login);
         }
 
         [HttpGet]
@@ -76,7 +85,7 @@ namespace PetsHotel.webapp.Controllers
         {
             _loginService.LogOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("SignIn", "Account");
         }
     }
 }

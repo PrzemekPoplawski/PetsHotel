@@ -20,6 +20,7 @@ namespace PetsHotel.webapp.ViewModels.UserData
         public string Email { get; set; }
         [Display(Name = "Telefon:")]
         [Required(ErrorMessage = "Pole {0} jest wymagane")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$", ErrorMessage = "Nie prawidłowy numer telefonu")]
         public string PhoneNumber { get; set; }
         [Display(Name = "Płeć")]
         [Required(ErrorMessage = "Pole {0} jest wymagane")]

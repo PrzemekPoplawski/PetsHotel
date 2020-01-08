@@ -55,7 +55,7 @@ namespace PetsHotel.webapp.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(model);
             }
 
             var user = _userService.GetAllUsers().Where(p => p.PersonId == model.PersonId).FirstOrDefault();
