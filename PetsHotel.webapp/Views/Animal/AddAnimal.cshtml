@@ -1,18 +1,39 @@
 ﻿@model PetsHotel.webapp.ViewModels.Animal.AddAnimalViewModel
 @{
     ViewBag.title="Dodawanie zwierzaka";
+  
 }
 
-@using (Html.BeginForm("AddAnimal", "Animal", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+<!DOCTYPE html>
+@using (Html.BeginForm("AddAnimal", "Animal", FormMethod.Post, new { @class = "form-signin", role = "form",enctype = "multipart/form-data" }))
 {
-    @Html.LabelFor(x=>x.AnimalName, new { @class = "sr-only" })
-    @Html.TextBoxFor(x=>x.AnimalName, new  { @class = "form-control center-block" })
+    <hr />
+    <div class="row">
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.AnimalName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.AnimalName, new { @class = "form-control center-block" })
+            </div>
 
-    @Html.LabelFor(x=>x.AnimalType, new  { @class = "sr-only"  })
-    @Html.TextBoxFor(x=>x.AnimalType, new { @class = "form-control center-block" })
-
-    @Html.LabelFor(x=>x.DateOfBirth, new { @class = "sr-only"  })
-    @Html.TextBoxFor(x=>x.DateOfBirth, new  { @class = "form-control center-block"  })
-
+        </div>
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.AnimalType, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.AnimalType, new { @class = "form-control center-block" })
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.DateOfBirth, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control center-block" })
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="exampleFormControlFile1">Dodaj zdjęie</label>
+                <input type="file" name ="FileUpload" class="form-control-file" id="FileUpload">
+            </div>
+    </div>
+    <hr />
+    
     <input type="submit" class="btn btn-primary mb-2" value="Zapisz" />
 }

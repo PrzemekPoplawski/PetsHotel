@@ -41,6 +41,8 @@ namespace PetsHotel.webapp.Controllers
         {
             if(IsLoginExist(model.Login))
                 ModelState.AddModelError("LoginExists", "Podany login jest zajęty.");
+            if (IsEmailExists(model.Email))
+                ModelState.AddModelError("EmailExists", " Podany email juz istnieje");
 
             if (!ModelState.IsValid)
             {
@@ -56,6 +58,12 @@ namespace PetsHotel.webapp.Controllers
         {
             if (string.IsNullOrEmpty(login)) return false;
             return _loginService.GetAllLogins().Any(m => m.UserName == login);
+        }
+
+        private bool IsEmailExists(string email)
+        {
+            if (string.IsNullOrEmpty(email)) return false;
+            return _loginService.GetAllLogins().Any(m => m.User_UserId.Person_PersonId.Email == email);
         }
 
         [HttpGet]

@@ -16,5 +16,6 @@ namespace PetsHotel.webapp.ViewModels.Animal
         public string AnimalType { get; set; }
         [Display(Name = "Nazwa Zwierzaka")]
         public string AnimalName { get; set; }
+        public HttpPostedFileBase FileUpload { get; set; }
     }
 }

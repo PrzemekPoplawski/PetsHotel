@@ -19,22 +19,25 @@
 <body class="text-center">
     @using (Html.BeginForm("SignIn", "Account", FormMethod.Post, new { @class = "form-signin", role = "form" }))
     {
-            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <div style="align-items: center"><img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal" style="margin-bottom: 30px;">Zaloguj się</h1>
+        </div>
+        <div>
+            @Html.ValidationSummary("", new { @class = "text-danger" });
             @Html.LabelFor(m => m.Login, new { @class = "sr-only" })
             @Html.TextBoxFor(m => m.Login, new { @class = "form-control center-block", placeholder = "Login lub Email", autofocus = "autofocus", required = "required" })
 
             @Html.LabelFor(m => m.Password, new { @class = "sr-only" })
             @Html.PasswordFor(m => m.Password, new { @class = "form-control center-block", placeholder = "Hasło", required = "true" })
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit" , style="margin-top:30px;">Zaloguj</button>
-            <div>
-                <div class="checkbox mb-3">
-                    <label>@Html.ActionLink("Register as a new user", "SignUp")</label>
-                </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" , style="margin-top:30px;">Zaloguj</button>
+        <div>
+            <div class="checkbox mb-3">
+                <label>@Html.ActionLink("Register as a new user", "SignUp")</label>
             </div>
-            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
     }
     @Scripts.Render("~/bundles/bootstrap")
-    </body>
+</body>
 </html>
