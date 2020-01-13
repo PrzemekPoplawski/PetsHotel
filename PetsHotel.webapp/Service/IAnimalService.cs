@@ -10,6 +10,7 @@ namespace PetsHotel.webapp.Service
      public interface IAnimalService
     {
         void AddAnimal(AnimalEntity entity);
+        IQueryable<AnimalEntity> GetAllAnimals();
 
         void Save();
     }

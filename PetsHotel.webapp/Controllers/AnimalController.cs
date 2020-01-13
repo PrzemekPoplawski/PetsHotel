@@ -46,15 +46,26 @@ namespace PetsHotel.webapp.Controllers
                 //mapowanie obrazka na byte[]
                
             };
-            //dodanie entity do bazy byte[] do zapisywania zdjecia 
-            //button "Lista twoich zwierzaków" i CRUD zwierzaków 
-            // edycja zwierzaka, lista zwierzaka danego uzytkownika wraz z obrazkiem (tu trzeba znaleźć sposób na wyswietlenie obrazka na stronie)
-
+            
             _animalService.AddAnimal(animal);
 
             _animalService.Save();
 
             return View(model);
+        }
+
+        public ActionResult MyAnimalsList(/*int id*/)
+        {
+
+            var animals = _animalService.GetAllAnimals()/*.Where(p=>p.UserId==id)*/.Select(p => new MyAnilmalsListViewModel
+            {
+                AnimalId = p.AnimalId,
+                AnimalName = p.AnimalName,
+                AnimalType = p.AnimalType,
+                DateOfBirth = p.DataOfBirth
+            }).ToList();
+
+            return View(animals);
         }
     }
 }

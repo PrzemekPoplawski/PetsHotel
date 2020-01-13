@@ -21,9 +21,15 @@ namespace PetsHotel.webapp.Service
             _animalRepository.Add(entity);
         }
 
+        public IQueryable<AnimalEntity> GetAllAnimals()
+        {
+           return _animalRepository.GetAllValues();
+        }
+
         public void Save()
         {
             _animalRepository.Save();
         }
+
     }
 }
