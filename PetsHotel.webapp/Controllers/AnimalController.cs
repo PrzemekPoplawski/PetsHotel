@@ -53,20 +53,24 @@ namespace PetsHotel.webapp.Controllers
 
             return View(model);
         }
-        //GET
-        public ActionResult MyAnimalsList(int id)
+
+        public ActionResult AnimalList(int id)
         {
-            //id = 3
-            var animals = _animalService.GetAllAnimals().Where(p=>p.UserId==id).Select(p => new MyAnilmalsListViewModel
+            var animals = _animalService.GetAllAnimals().Where(p => p.UserId == id).Select(p => new MyAnilmalsListViewModel
             {
                 UserId = id,
                 AnimalId = p.AnimalId,
                 AnimalName = p.AnimalName,
-                AnimalType = p.AnimalType,
-                DateOfBirth = p.DataOfBirth
+                AnimalType = p.AnimalType
             }).ToList();
 
-            return View(animals);
+            return Json(animals, JsonRequestBehavior.AllowGet);
+        }
+        //GET
+        public ActionResult MyAnimalsList()
+        {
+            return View();
+            
         }
     }
 }
