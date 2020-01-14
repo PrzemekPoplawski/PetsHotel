@@ -7,6 +7,6 @@ namespace PetsHotel.webapp.ViewModels.Home
 {
     public class HomeViewModel
     {
-        public string AdId { get; set; }
+        public string AdName { get; set; }
     }
 }

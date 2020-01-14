@@ -46,7 +46,7 @@
                                 <li role="presentation">@Html.ActionLink("Lista użytkowników", "List", "UserData")</li>
                                 }
                                 <li role="presentation">@Html.ActionLink("Dodaj zwierzaka", "AddAnimal", "Animal")</li>
-                                <li role="presentation">@Html.ActionLink("Lista moich zwierzaków","MyAnimalsList", "Animal")</li>
+                                <li role="presentation">@Html.ActionLink("Lista moich zwierzaków","MyAnimalsList", "Animal", new { id = @Html.IdentityExtension().UserId }, null)</li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">@Html.ActionLink("Wyloguj", "LogOut", "Account")</li>
                             </ul>
