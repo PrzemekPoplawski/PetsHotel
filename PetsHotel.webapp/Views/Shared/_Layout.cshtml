@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
@@ -27,15 +26,15 @@
                     <li>@Html.ActionLink("Główna", "Index", "Home")</li>
                     <li>@Html.ActionLink("Informacje", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li style="float:right">@Html.ActionLink("Dodaj ogłoszenie", "AddAnimal", "Animal", new { @class = "btn btn-primary", type = "button"})</li>
+                    <li style="float:right">@Html.ActionLink("Dodaj ogłoszenie", "AddAnimal", "Animal", new { @class = "btn btn-primary", type = "button" })</li>
 
                     @if (Html.IdentityExtension() == null)
                     {
-                    <li style="float:right">@Html.ActionLink("Zaloguj się", "SignIn", "Account")</li>
+                        <li style="float:right">@Html.ActionLink("Zaloguj się", "SignIn", "Account")</li>
                     }
                     else
                     {
-                    <li style="float:right">
+                        <li style="float:right">
                             <button class="btn btn-primary" type="button" id="menu1" data-toggle="dropdown">
                                 Witaj, @Html.IdentityExtension().UserName
                                 <span class="caret"></span>
@@ -44,17 +43,17 @@
                                 <li role="presentation">@Html.ActionLink("Dane Konta", "Edit", "UserData", new { id = @Html.IdentityExtension().LoginId }, null)</li>
                                 @if (Html.RoleExtension().IsAdmin)
                                 {
-                                <li role="presentation">@Html.ActionLink("Lista użytkowników", "List", "UserData")</li>
+                                    <li role="presentation">@Html.ActionLink("Lista użytkowników", "List", "UserData")</li>
                                 }
                                 <li role="presentation">@Html.ActionLink("Dodaj zwierzaka", "AddAnimal", "Animal")</li>
-                                <li role="presentation">@Html.ActionLink("Lista moich zwierzaków","MyAnimalsList", "Animal", new { id = @Html.IdentityExtension().UserId }, null)</li>
+                                <li role="presentation">@Html.ActionLink("Lista moich zwierzaków", "MyAnimalsList", "Animal", new { id = @Html.IdentityExtension().UserId }, null)</li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">@Html.ActionLink("Wyloguj", "LogOut", "Account")</li>
                             </ul>
-                    </li>
-                }
+                        </li>
+                    }
 
-</div>
+            </div>
         </div>
     </div>
     <div class="container body-content">
@@ -67,6 +66,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
     @RenderSection("scripts", required: false)
 </body>
 </html>
