@@ -169,7 +169,6 @@
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\UserData\EditViewModel.cs" />
     <Compile Include="ViewModels\UserData\ShowViewModel.cs" />
-    <Compile Include="Views\Animal\MyAnimalsList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -252,18 +251,18 @@
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\js\dataTables.buttons.js" />
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\js\dataTables.buttons.min.js" />
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\swf\flashExport.swf" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.bootstrap.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.bootstrap.min.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.bootstrap4.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.bootstrap4.min.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.foundation.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.foundation.min.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.jqueryui.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.jqueryui.min.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.semanticui.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\dataTables.semanticui.min.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\jquery.dataTables.css" />
-    <Content Include="Scripts\MyScripts\DataTables-1.10.20\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
     <Content Include="Scripts\MyScripts\DataTables-1.10.20\images\sort_asc.png" />
     <Content Include="Scripts\MyScripts\DataTables-1.10.20\images\sort_asc_disabled.png" />
     <Content Include="Scripts\MyScripts\DataTables-1.10.20\images\sort_both.png" />
@@ -281,9 +280,9 @@
     <Content Include="Scripts\MyScripts\DataTables-1.10.20\js\dataTables.semanticui.min.js" />
     <Content Include="Scripts\MyScripts\DataTables-1.10.20\js\jquery.dataTables.js" />
     <Content Include="Scripts\MyScripts\DataTables-1.10.20\js\jquery.dataTables.min.js" />
-    <Content Include="Scripts\MyScripts\datatables.css" />
+    <Content Include="Content\DataTables\datatables.css" />
     <Content Include="Scripts\MyScripts\datatables.js" />
-    <Content Include="Scripts\MyScripts\datatables.min.css" />
+    <Content Include="Content\DataTables\datatables.min.css" />
     <Content Include="Scripts\MyScripts\datatables.min.js" />
     <Content Include="Scripts\MyScripts\Responsive-2.2.3\css\responsive.bootstrap.css" />
     <Content Include="Scripts\MyScripts\Responsive-2.2.3\css\responsive.bootstrap.min.css" />
