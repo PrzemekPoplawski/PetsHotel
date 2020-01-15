@@ -175,11 +175,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\main.css" />
     <Content Include="Content\DataTables\images\sort_asc.png" />
     <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
     <Content Include="Content\DataTables\images\sort_both.png" />
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\css\Searchs_130.png" />
     <Content Include="Content\SignIn.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -308,6 +310,10 @@
     <Content Include="Scripts\MyScripts\Responsive-2.2.3\js\responsive.jqueryui.min.js" />
     <Content Include="Scripts\MyScripts\Responsive-2.2.3\js\responsive.semanticui.js" />
     <Content Include="Scripts\MyScripts\Responsive-2.2.3\js\responsive.semanticui.min.js" />
+    <Content Include="Scripts\TemplateJs\js\extention\choices.js" />
+    <Content Include="Scripts\TemplateJs\js\extention\custom-materialize.js" />
+    <Content Include="Scripts\TemplateJs\js\extention\flatpickr.js" />
+    <Content Include="Scripts\TemplateJs\js\main.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

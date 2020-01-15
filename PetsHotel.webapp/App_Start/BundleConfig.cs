@@ -20,7 +20,11 @@ namespace PetsHotel.webapp
                         "~/Scripts/modernizr-*",
                         "~/Scripts/MyScripts/datatables.js",
                         "~/Scripts/MyScripts/DataTables-1.10.20/js/dataTables.*",
-                        "~/Scripts/MyScripts/DataTables-1.10.20/js/jquery.dataTables.js"
+                        "~/Scripts/MyScripts/DataTables-1.10.20/js/jquery.dataTables.js",
+                        "~/Scripts/TemplateJs/js/main.js",
+                        "~/Scripts/TemplateJs/js/extension/choices.js",
+                        "~/Scripts/TemplateJs/js/extension/custom-materialize.js",
+                        "~/ Scripts/TemplateJs/js/extension/flatpickr.js"
                         //"~/Scripts/MyScripts/datatables.min.js",
                         ));
 
@@ -32,7 +36,8 @@ namespace PetsHotel.webapp
                       "~/Content/site.css",
                       "~/Content/DataTables/datatables.css",
                       "~/Content/DataTables/css/dataTables*",
-                      "~/Content/DataTables/css/jquery.dataTables.css"));
+                      "~/Content/DataTables/css/jquery.dataTables.css",
+                      "~/Content/css/main.css"));
 
         }
     }

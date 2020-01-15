@@ -56,18 +56,11 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>UserId</th>
                 <th>AnimalId</th>
                 <th>AnimalName</th>
+                <th>AnimalType</th>
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>UserId</th>
-                <th>AnimalId</th>
-                <th>AnimalName</th>
-            </tr>
-        </tfoot>
     </table>
 </body>
 </html>
@@ -78,12 +71,15 @@
         $(document).ready(function () {
             console.log("tes");
             $('#example').DataTable({
-                ajax: "/Animal/AnimalList/1",
-                dataSrc: 'rows',
+                ajax: {
+                    url: "/Animal/AnimalList/1",
+                    dataType: "json",
+                    dataSrc: ""
+                },
                 columns: [
-                    { data: "UserId" },
-                    { data: "AnimalId" },
-                    { data: "AnimalName" }
+                    { "data": "AnimalId" },
+                    { "data": "AnimalName" },
+                    { "data": "AnimalType" }
                 ]
             });
         });
