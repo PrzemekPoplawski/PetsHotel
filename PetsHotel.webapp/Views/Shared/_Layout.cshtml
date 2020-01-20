@@ -19,14 +19,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("PetsHotel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("PetsHotel", "Index", "Home", new { area = "" }, new { @class = "btn btn-success" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div>
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Główna", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li style="float:right">@Html.ActionLink("Dodaj ogłoszenie", "AddAnimal", "Animal", new { @class = "btn btn-primary", type = "button" })</li>
+                    <li>@Html.ActionLink("Główna", "Index", "Home", new { @class = "btn btn-success", type="button" })</li>                    
+                    <li>@Html.ActionLink("Informacje", "About", "Home", new { @class = "btn btn-success", type="button" })</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home" ,new { @class = "btn btn-success", type="button" })</li>
+                    <li style="float:right">@Html.ActionLink("Dodaj ogłoszenie", "AddAnimal", "Animal", new { @class = "btn btn-success", type = "button" })</li>
 
                     @if (Html.IdentityExtension() == null)
                     {
@@ -39,8 +39,7 @@
                                 Witaj, @Html.IdentityExtension().UserName
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="presentation">@Html.ActionLink("Dane Konta", "Edit", "UserData", new { id = @Html.IdentityExtension().LoginId }, null)</li>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1"><li role="presentation">@Html.ActionLink("Dane Konta", "Edit", "UserData", new { id = @Html.IdentityExtension().LoginId }, null)</li>
                                 @if (Html.RoleExtension().IsAdmin)
                                 {
                                     <li role="presentation">@Html.ActionLink("Lista użytkowników", "List", "UserData")</li>
@@ -53,7 +52,7 @@
                         </li>
                     }
 
-            </div>
+</div>
         </div>
     </div>
     <div class="container body-content">
