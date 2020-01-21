@@ -22,3 +22,27 @@ select,
 textarea {
     max-width: 280px;
 }
+
+ul.nav.navbar-nav li {
+    margin: 2px;
+}
+
+ul.nav.navbar-nav.navbar-right li ul dropdown-menu {
+    color: blue;
+    transition: all .2s ease-out, color .2s ease-out;
+    background-color: #00ad5f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+    ul.nav.navbar-nav li a {
+        color: #fff;
+        transition: all .2s ease-out, color .2s ease-out;
+        background-color: #00ad5f;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+    }
+
+    ul.nav.navbar-nav li a:hover {
+        background-color: #009451;
+    }
