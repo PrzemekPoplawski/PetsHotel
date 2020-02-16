@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PetsHotel.webapp.ViewModels.Animal.TestAnimalListcs>
+
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+    <form id="search-form" method="get" data-ajax="true" data-ajax-targer="#animalListPartial" data-ajax-update="#animalListPartial">
+        <input id="Szukaj" name="szukaj" data-autocomplete-source="@Url.Action("")" placeholder="wproad imie " style="width: 200px" />
+        <input type="submit" value="filtruj" />
+
+    </form>
+
+    <br />
+
+    @Html.Partial("_TestAnimalList")
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script>
+
+    </script>
+</body>
+</html>

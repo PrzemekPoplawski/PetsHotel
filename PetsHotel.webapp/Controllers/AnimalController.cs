@@ -72,5 +72,22 @@ namespace PetsHotel.webapp.Controllers
             return View();
             
         }
+
+        public ActionResult TestAnimalList(string search = null)
+        {
+            IEnumerable<TestAnimalListcs> listaZwierzakow;
+
+            if (search != null)
+            {
+                listaZwierzakow = TestAnimalListcs.AnimalList().Where(p => p.AnimalName.Contains(search)).ToArray();
+            }
+            else
+                listaZwierzakow = TestAnimalListcs.AnimalList().ToArray();
+
+            if (Request.IsAjaxRequest())
+                return PartialView("_TestAnimalList", listaZwierzakow);
+
+            return View(listaZwierzakow);
+        }
     }
 }

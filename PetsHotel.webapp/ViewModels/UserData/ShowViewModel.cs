@@ -15,8 +15,8 @@ namespace PetsHotel.webapp.ViewModels.UserData
         public string LastName { get; set; }
         [Display(Name = "Login")]
         public string UserName { get; set; }
-        [Display(Name = "Login ID")]
-        public int LoginId { get; set; }
+        [Display(Name = "Person Id")]
+        public int PersonId { get; set; }
         public int RoleId { get; set; }
         [Display(Name="Rola")]
         public string Role

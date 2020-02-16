@@ -166,6 +166,7 @@
     <Compile Include="ViewModels\Account\SignUpViewModel.cs" />
     <Compile Include="ViewModels\Animal\AddAnimalViewModel.cs" />
     <Compile Include="ViewModels\Animal\MyAnilmalsListViewModel.cs" />
+    <Compile Include="ViewModels\Animal\TestAnimalListcs.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\UserData\EditViewModel.cs" />
     <Compile Include="ViewModels\UserData\ShowViewModel.cs" />
@@ -342,6 +343,8 @@
     <Content Include="Views\Animal\MyAnimalsList.cshtml" />
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\css\common.scss" />
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\css\mixins.scss" />
+    <Content Include="Views\Animal\_TestAnimalList.cshtml" />
+    <Content Include="Views\Animal\TestAnimalList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

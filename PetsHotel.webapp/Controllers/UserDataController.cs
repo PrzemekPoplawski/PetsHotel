@@ -97,7 +97,7 @@ namespace PetsHotel.webapp.Controllers
             // kontroler metoda get, widok z listą użytkowników 
            
             var users = _loginService.GetAllLogins().Select(p => new ShowViewModel {
-                LoginId = p.User_UserId.Person_PersonId.PersonId,
+                PersonId = p.User_UserId.Person_PersonId.PersonId,
                 FirstName = p.User_UserId.Person_PersonId.FristName,
                 LastName = p.User_UserId.Person_PersonId.LastName,
                 RoleId = p.User_UserId.UserTypeId,
@@ -106,6 +106,28 @@ namespace PetsHotel.webapp.Controllers
 
             return View(users);
 
+        }
+
+        [HttpPost]
+        public ActionResult UpdateName(int id,string value)
+        {
+            var person = _userService.GetAllPersons().Where(p => p.PersonId == id).FirstOrDefault();
+            person.FristName = value;
+
+            _userService.Save();
+
+            return Json(new { success = true, responseText = "User updated" });
+        }
+
+        [HttpPost]
+        public ActionResult UpdateLastName(int id, string value)
+        {
+            var person = _userService.GetAllPersons().Where(p => p.PersonId == id).FirstOrDefault();
+            person.FristName = value;
+
+            _userService.Save();
+
+            return Json(new { success = true, responseText = "User updated" });
         }
 
     }

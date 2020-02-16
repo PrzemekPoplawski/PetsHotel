@@ -1,0 +1,16 @@
+﻿@model IEnumerable<PetsHotel.webapp.ViewModels.Animal.TestAnimalListcs>
+
+<div id="animalListPartial">
+
+    <table class="table">
+        <tr>
+            <th>NazwaZwierza</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.AnimalName)</td>
+            </tr>
+        }
+    </table>
+</div>

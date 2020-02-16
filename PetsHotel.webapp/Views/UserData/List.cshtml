@@ -19,7 +19,7 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LoginId)
+                @Html.DisplayNameFor(model => model.PersonId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
@@ -39,13 +39,23 @@
     @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.LoginId)
+            @Html.DisplayFor(modelItem => item.PersonId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+           @Html.TextBoxFor(modelItem => item.FirstName)
+           <span class="input-group-button">
+                <button class="btn userUpdateBtn" id="@item.PersonId">
+                    <span class="iconify" data-icon="octicon-pencil" data-inline="false"></span>
+                </button>
+            </span>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.TextBoxFor(modelItem => item.LastName)
+            <span class="input-group-button">
+                <button class="btn lastNameUpdateBtn" id="@item.PersonId">
+                    <span class="iconify" data-icon="octicon-pencil" data-inline="false"></span>
+                </button>
+            </span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
@@ -54,12 +64,62 @@
             @Html.DisplayFor(modelItem => item.Role)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.LoginId })
-            @Html.ActionLink("Delete", "Delete", new { id = item.LoginId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.PersonId })
+            @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
         </td>
     </tr>
     }
     
     </table>
+
+   
 </body>
 </html>
+    @section Scripts
+    {
+            <script type="text/javascript">
+                $(function(){
+
+                    //var personId = $(this).attr("id");
+                    //var personvalue = $(this).parent().parent().find("input[type=text]").val();
+
+                    $(".userUpdateBtn").on("click", function () {
+                        var personId = $(this).attr("id");
+                        var personvalue = $(this).parent().parent().find("input[type=text]").val();
+                        var jsonData = JSON.stringify({
+                        'id': personId,
+                        'value' : personvalue
+                    
+                    });
+
+                        $.ajax({
+                            type : "POST",
+                            url : '@Url.Action("UpdateName")',
+                            data :  jsonData,
+                            success: function (res) { alert(res.responseText) },
+                            contentType: 'application/json',
+                            dataType : 'json'
+                        });
+                    });
+
+                    $(".lastNameUpdateBtn").on("click", function () {
+                        var personId = $(this).attr("id");
+                        var lastNameValue = $(this).parent().parent().find("input[type=text]").val();
+                        console.log(personId + " " + lastNameValue);
+                        var jsonData = JSON.stringify({
+                            'id': personId,
+                            'value': lastNameValue
+                        });
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("UpdateLastName")',
+                            data: jsonData,
+                            success: function (res) { alert(res.responseText) },
+                            contentType: 'application/json',
+                            dataType: 'json'
+                        });
+                    });
+                });
+
+            </script>
+    }
