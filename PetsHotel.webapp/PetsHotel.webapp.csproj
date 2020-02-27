@@ -136,9 +136,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdvertisementController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserDataController.cs" />
+    <Compile Include="Entity\AdvertisementEntity.cs" />
     <Compile Include="Entity\AnimalEntity.cs" />
     <Compile Include="Entity\DatabaseContext.cs" />
     <Compile Include="Entity\Entity.cs" />
@@ -149,6 +151,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Helpers\ImageConverter.cs" />
     <Compile Include="Models\Identity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +167,7 @@
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModels\Account\SignInViewModel.cs" />
     <Compile Include="ViewModels\Account\SignUpViewModel.cs" />
+    <Compile Include="ViewModels\Advertisement\AdvertisementTemplate.cs" />
     <Compile Include="ViewModels\Animal\AddAnimalViewModel.cs" />
     <Compile Include="ViewModels\Animal\MyAnilmalsListViewModel.cs" />
     <Compile Include="ViewModels\Animal\TestAnimalListcs.cs" />
@@ -176,6 +180,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carousel.css" />
+    <Content Include="Content\cat.png" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\DataTables\images\sort_asc.png" />
     <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
@@ -183,6 +189,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\css\Searchs_130.png" />
+    <Content Include="Content\doggy.png" />
     <Content Include="Content\SignIn.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -191,6 +198,7 @@
     <Content Include="Helpers\NewFile1.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\petsPhoto.png" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -345,6 +353,7 @@
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\css\mixins.scss" />
     <Content Include="Views\Animal\_TestAnimalList.cshtml" />
     <Content Include="Views\Animal\TestAnimalList.cshtml" />
+    <Content Include="Views\Advertisement\AddAdvertisement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

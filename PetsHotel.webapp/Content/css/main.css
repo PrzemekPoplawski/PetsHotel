@@ -934,6 +934,13 @@ button {
   font-weight: 300;
 }
 
+.s130 form .inner-form .dogsClass{
+   background-color:blueviolet;
+}
+    .s130 form .inner-form.dogsClass .dogs-btn {
+        background-color: blueviolet;
+    }
+
 .s130 form .inner-form .input-field.second-wrap .btn-search:hover {
   background: #009451;
 }

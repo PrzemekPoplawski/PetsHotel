@@ -1,4 +1,5 @@
 ﻿@using PetsHotel.webapp.Helpers;
+@model IEnumerable<PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
     @Styles.Render("~/Content/css")
-
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,7 +27,8 @@
                     <li>@Html.ActionLink("HOME", "Index", "Home", new { @class = "btn btn-success", type = "button" })</li>
                     <li>@Html.ActionLink("INFORMACJE", "About", "Home", new { @class = "btn btn-success", type = "button" })</li>
                     <li>@Html.ActionLink("KONTAKT", "Contact", "Home", new { @class = "btn btn-success", type = "button" })</li>
-                    <li>@Html.ActionLink("DODAJ OGŁOSZENIE", "AddAnimal", "Animal", new { @class = "btn btn-success", type = "button" })</li>
+                    <li><a class="btn btn-success" data-toggle="modal" data-target=".bootstrapmodal"/>Dodaj ogłoszenie</a></li>
+                   
                 </ul>
             </div>
             <div>
@@ -59,7 +61,39 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div>
+       @*@Html.Partial("~/Views/Advertisement/AddAdvertisement.cshtml")*@
+        @Html.WindowFactory().Window().Title("Dodaj ogłoszenie")
+        
+        
+    </div>
+    @helper PopUpAdvertisementView(PartialViewResult body) { //kurde rozumiem 
+
+        <text>
+            <div class="modal fade bootstrapmodal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button data-dismiss="modal" class="close"><span>&times;</span></button>
+                            <div class="modal-title">Dodaj ogłosznie</div>
+                        </div>
+                        <div class="modal-body">
+                            <p>@Html.Partial(body.ToString())</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </text>
+        
+    }
+
+
+
+    <div class="container">
         @RenderBody()
         <hr />
         <footer>
