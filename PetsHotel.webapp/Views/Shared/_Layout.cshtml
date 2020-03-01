@@ -62,33 +62,9 @@
         </div>
     </div>
     <div>
-       @*@Html.Partial("~/Views/Advertisement/AddAdvertisement.cshtml")*@
-        @Html.WindowFactory().Window().Title("Dodaj ogłoszenie")
-        
-        
+       @Html.Partial("~/Views/Advertisement/AddAdvertisement.cshtml")
+        @*@Html.WindowFactory().Window().Title("Dodaj ogłoszenie")*@
     </div>
-    @helper PopUpAdvertisementView(PartialViewResult body) { //kurde rozumiem 
-
-        <text>
-            <div class="modal fade bootstrapmodal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button data-dismiss="modal" class="close"><span>&times;</span></button>
-                            <div class="modal-title">Dodaj ogłosznie</div>
-                        </div>
-                        <div class="modal-body">
-                            <p>@Html.Partial(body.ToString())</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </text>
-        
     }
 
 

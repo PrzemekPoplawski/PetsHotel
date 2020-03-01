@@ -10,7 +10,7 @@ namespace PetsHotel.webapp.ViewModels.Advertisement
     {
         public int AdvertisementId { get; set; }
         public int UserId { get; set; }
-        public int AnimalId { get; set; }
+        public AnimalTypes AnimalId { get; set; }
         [Display(Name ="Tytuł")]
         public string Title { get; set; }
         public string Description { get; set; }
@@ -19,5 +19,12 @@ namespace PetsHotel.webapp.ViewModels.Advertisement
         public DateTime ValidFrom { get; set; }
         public DateTime ValidTo { get; set; }
         public int AnimalTypeId { get; set; }
+
+        public enum AnimalTypes
+        {
+            dog=1,
+            cat=2,
+            other=3 
+        }
     }
 }

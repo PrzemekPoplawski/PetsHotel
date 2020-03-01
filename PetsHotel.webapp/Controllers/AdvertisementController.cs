@@ -1,4 +1,7 @@
-﻿using PetsHotel.webapp.ViewModels.Advertisement;
+﻿using PetsHotel.webapp.Entity;
+using PetsHotel.webapp.Providers;
+using PetsHotel.webapp.Service;
+using PetsHotel.webapp.ViewModels.Advertisement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +12,36 @@ namespace PetsHotel.webapp.Controllers
 {
     public class AdvertisementController : Controller
     {
-        public AdvertisementController()
-        {
+        private readonly IIdentityProvider _identityProvider;
+        private readonly IAdvertisementService _advertisementService; 
 
+        public AdvertisementController(IIdentityProvider identityProvider, IAdvertisementService advertisementService)
+        {
+            _identityProvider=identityProvider;
+             _advertisementService= advertisementService;
         }
 
-        [HttpGet]
-        public PartialViewResult AddAdvertisement()
+        [HttpPost]
+        public ActionResult AddAdvertisement(AdvertisementTemplate advertisementTemplate)
         {
-            var model = new AdvertisementTemplate();
-           
-            if(false)
+            var model = new AdvertisementEntity
             {
-                model = new AdvertisementTemplate()
-                {
-                    Title = "tytuł",
-                    Adress = "adress",
-                    AnimalId = 3,
-                    Description = "opis",
-                    PhoneNumber = 6546546
-                };
-            }
-            return PartialView(model);
+                Title = advertisementTemplate.Title,
+                Description = advertisementTemplate.Description,
+                Adress = advertisementTemplate.Adress,
+                ValidFrom = advertisementTemplate.ValidFrom,
+                ValidTo = advertisementTemplate.ValidTo,
+                AnimalTypeId = advertisementTemplate.AnimalTypeId
+
+            };
+
+            _advertisementService.Save();
+
+            return View("~/Views/Shared/_Layout.cshtml");
+
         }
 
-        
+
+
     }
 }

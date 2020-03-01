@@ -1,20 +1,24 @@
 ﻿@model PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate
 
-
-<div class="modal fade bootstrapmodal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button data-dismiss="modal" class="close"><span>&times;</span></button>
-                <div class="modal-title">Dodaj ogłosznie</div>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save changes</button>
+@using (Html.BeginForm("AddAdvertisement", "Advertisement", FormMethod.Post, new { @class = "form-signin", role = "form", enctype = "multipart/form-data" }))
+{
+    <div class="modal fade bootstrapmodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close"><span>&times;</span></button>
+                    <div class="modal-title">Dodaj ogłosznie</div>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("~/Views/Advertisement/AdvertisementTable.cshtml")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    @*<button type="button" class="btn btn-success">Save changes</button>*@
+                    @*@Html.ActionLink("Save", "AddAdvertisement", "Advertisement", new { @class = "btn btn-success", type = "button" });*@
+                    <input type="submit" class="btn btn-success" value="Zapisz" />
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
