@@ -85,17 +85,6 @@ namespace PetsHotel.webapp.Controllers
         //GET
         public ActionResult List()
         {
-            //PLAN
-            // LISTA UŻYTKOWNIKÓW JSON RESULT
-            // USER ID, IMIE, NAZWISKO, ROLA, PRZYCISKI EDYTUJ/USUŃ 
-            // NACISKAJAC NA ROLE ROZWINIe NAM SIĘ LISTA
-            // I PO WYBORZE OD RAZU ZAPISZE W BAZIE
-            // BEZ PRZEŁADOWANIA
-            // .ONCHANGE puść ajax.POST(URL, data, ) formacie JSON, JSON RESULT {zapisuje do bazy}
-            //ZADANIA
-            //1. Lista jako widok imie nazwisko rola przyciski edytuj i usuń
-            // kontroler metoda get, widok z listą użytkowników 
-           
             var users = _loginService.GetAllLogins().Select(p => new ShowViewModel {
                 PersonId = p.User_UserId.Person_PersonId.PersonId,
                 FirstName = p.User_UserId.Person_PersonId.FristName,

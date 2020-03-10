@@ -38,6 +38,7 @@ namespace PetsHotel.webapp
                       "~/Content/DataTables/css/dataTables*",
                       "~/Content/DataTables/css/jquery.dataTables.css",
                       "~/Content/carousel.css",
+                      "~/Content/css/advertisement.css",
                       "~/Content/css/main.css"));
 
         }

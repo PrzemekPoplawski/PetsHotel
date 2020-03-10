@@ -1,0 +1,93 @@
+﻿@model PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate
+
+
+@{
+    ViewBag.title = "Advertisement";
+}
+
+@Styles.Render("~/Content/css/advertisement.css")
+
+
+<!DOCTYPE html>
+
+@using (Html.BeginForm("AddAdvertisement", "Advertisement", FormMethod.Post, new { @class = "form-signin", role = "form", enctype = "multipart/form-data" }))
+{
+
+    <h1>DODAJ OGŁOSZENIE</h1>
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Title)
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Title, new { @class="adv-input" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.AnimalTypeId)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.AnimalTypeId, new List<SelectListItem>
+            {
+                new SelectListItem{Text="Dog",Value="1"},
+                new SelectListItem{Text="Cat",Value="2"},
+                new SelectListItem{Text="Other",Value="3"}
+            }, new { @class="adv-input"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Adress)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Adress, new { placeholder = " Ulica i miejscowość", @class="adv-input" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.PhoneNumber)
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.PhoneNumber, new { placeholder = "000-000-000", @class="adv-input" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.ValidFrom)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.ValidFrom, new { type = "date", @class = "adv-input" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.ValidTo)
+
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.ValidTo, new { type = "date", @class = "adv-input" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Description)
+            </td>
+            <td>
+                @Html.TextAreaFor(x => x.Description ,new { @class="adv-input"})
+            </td>
+        </tr>
+    </table>
+
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <input type="submit" class="btn btn-success" value="Zapisz" />
+}
+<div>
+    <img class="petsPhoto" id="petsPhoto" src="~/Content/themes/pets.png" />
+</div>
+
+
+

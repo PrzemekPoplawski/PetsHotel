@@ -20,10 +20,17 @@ namespace PetsHotel.webapp.Controllers
             _identityProvider=identityProvider;
              _advertisementService= advertisementService;
         }
+        [HttpGet]
+        public ActionResult AddAdvertisement()
+        {
+            return View("Advertisement");
+        }
 
         [HttpPost]
         public ActionResult AddAdvertisement(AdvertisementTemplate advertisementTemplate)
         {
+            var _identity = _identityProvider.Get("identity");
+
             var model = new AdvertisementEntity
             {
                 Title = advertisementTemplate.Title,
@@ -31,16 +38,41 @@ namespace PetsHotel.webapp.Controllers
                 Adress = advertisementTemplate.Adress,
                 ValidFrom = advertisementTemplate.ValidFrom,
                 ValidTo = advertisementTemplate.ValidTo,
-                AnimalTypeId = advertisementTemplate.AnimalTypeId
-
+                AnimalTypeId = advertisementTemplate.AnimalTypeId,
+                UserId = _identity.UserId
             };
 
+            _advertisementService.AddAdvertisement(model);
             _advertisementService.Save();
 
-            return View("~/Views/Shared/_Layout.cshtml");
+            return View("~/Views/Home/Index.cshtml");
 
         }
+        [HttpGet]
+        public ActionResult DogAdvertisements()
+        {
+            var model = _advertisementService.GetAllAdvertisement().Select(p => new AdvertisementTemplate
+            {
+                Title=p.Title,
+                Adress=p.Adress,
+                Description=p.Description,
+                ValidFrom=p.ValidFrom,
+                ValidTo=p.ValidTo,
+                //fota by sie przydała
+            }).ToList();
+            return View(model);
+        }
 
+        [HttpGet]
+        public ActionResult CatAdvertisements()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult OtherAdvertisements()
+        {
+            return View();
+        }
 
 
     }

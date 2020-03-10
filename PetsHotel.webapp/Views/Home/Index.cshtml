@@ -15,7 +15,7 @@
                             <h1>Koty</h1>
                             <p>Wyjezdzasz na wakacje, urlop ? Znajdz osobe która zaopiekuje sie twoim kotem<br />
                                Lubisz zajmować sie zwierzakami ? Chcesz zarobić ? Weź pod swój dach czyjegoś kota </p>
-                            <p><a class="btn btn-success" href="#" role="button">Ogłosznie</a></p>
+                            <p> @Html.ActionLink("Ogłoszenia","CatAdvertisements","Advertisement", null, new {@class="btn btn-success"})</p>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                                 Wyjezdzasz na wakacje, urlop ? Znajdz osobe która zaopiekuje sie twoim zwierzaka<br />
                                 Lubisz zajmować sie zwierzakami ? Chcesz zarobić ? Weź pod swój dach czyjegoś zwierzaka
                             </p>
-                            <p><a class="btn btn-success" href="#" role="button">Ogłoszenia</a></p>
+                            <p> @Html.ActionLink("Ogłoszenia","OtherAdvertisements", "Advertisement", null, new { @class = "btn btn-success" })</p>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                                 Wyjezdzasz na wakacje, urlop ? Znajdz osobe która zaopiekuje sie twoim psiakiem<br />
                                 Lubisz zajmować sie zwierzakami ? Chcesz zarobić ? Weź pod swój dach czyjegoś psiakiem
                             </p>
-                            <p><a class="btn btn-success" href="#" role="button">Ogłoszenia</a></p>
+                            <p> @Html.ActionLink("Ogłoszenia", "DogAdvertisements", "Advertisement", null, new { @class = "btn btn-success" })</p>
                         </div>
                     </div>
                 </div>

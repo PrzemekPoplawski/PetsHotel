@@ -36,7 +36,9 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
+.solid-font{
+    font-weight:bold;
+}
 /* Grouping content
    ========================================================================== */
 /**
@@ -46,8 +48,8 @@ h1 {
 figcaption,
 figure,
 main {
-  /* 1 */
-  display: block;
+    /* 1 */
+    display: block;
 }
 
 /**

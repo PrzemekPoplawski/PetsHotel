@@ -23,6 +23,7 @@ namespace PetsHotel.webapp.App_Start
             builder.RegisterType<LoginService>().As<ILoginService>();
             builder.RegisterType<SessionIdentityProvider>().As<IIdentityProvider>();
             builder.RegisterType<AnimalService>().As<IAnimalService>();
+            builder.RegisterType<AdvertisementService>().As<IAdvertisementService>();
 
 
             var container = builder.Build();

@@ -24,8 +24,6 @@ namespace PetsHotel.webapp.Entity
 
         [ForeignKey("UserId")]
         public UserEntity User_UserId { get; set; }
-        [ForeignKey("AnimalId")]
-        public ICollection<AnimalEntity> Animal_AnimalId { get; set; }
 
         enum AnimalTypes
         {

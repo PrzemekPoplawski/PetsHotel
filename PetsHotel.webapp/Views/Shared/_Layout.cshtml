@@ -1,5 +1,4 @@
 ﻿@using PetsHotel.webapp.Helpers;
-@model IEnumerable<PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate>
 
 <!DOCTYPE html>
 <html>
@@ -24,11 +23,11 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home", new { @class = "btn btn-success", type = "button" })</li>
-                    <li>@Html.ActionLink("INFORMACJE", "About", "Home", new { @class = "btn btn-success", type = "button" })</li>
-                    <li>@Html.ActionLink("KONTAKT", "Contact", "Home", new { @class = "btn btn-success", type = "button" })</li>
-                    <li><a class="btn btn-success" data-toggle="modal" data-target=".bootstrapmodal"/>Dodaj ogłoszenie</a></li>
-                   
+                    <li>@Html.ActionLink("HOME", "Index", "Home",null, new { @class = "btn btn-success", type = "button" })</li>
+                    <li>@Html.ActionLink("INFORMACJE", "About", "Home",null, new { @class = "btn btn-success", type = "button" })</li>
+                    <li>@Html.ActionLink("KONTAKT", "Contact", "Home",null, new { @class = "btn btn-success", type = "button" })</li>
+                    <li>@Html.ActionLink("Dodaj ogłoszenie", "AddAdvertisement","Advertisement",null, new { @class = "btn btn-success", type = "button" })</li>
+
                 </ul>
             </div>
             <div>
@@ -61,10 +60,6 @@
             </div>
         </div>
     </div>
-    <div>
-       @Html.Partial("~/Views/Advertisement/AddAdvertisement.cshtml")
-        @*@Html.WindowFactory().Window().Title("Dodaj ogłoszenie")*@
-    </div>
     }
 
 
@@ -83,5 +78,11 @@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <div>
+        @*@Html.Partial("~/Views/Advertisement/AddAdvertisement.cshtml")*@
+        @*@Html.WindowFactory().Window().Title("Dodaj ogłoszenie")*@
+    </div>
+
 </body>
 </html>
