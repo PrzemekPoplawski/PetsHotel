@@ -21,6 +21,7 @@ namespace PetsHotel.webapp.Entity
         public int UserId { get; set; }
         public int AnimalId { get; set; }
         public int AnimalTypeId { get; set; }
+        public byte[] PhotoConversion { get; set; }
 
         [ForeignKey("UserId")]
         public UserEntity User_UserId { get; set; }

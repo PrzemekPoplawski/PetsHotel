@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,6 +33,9 @@ namespace PetsHotel.webapp.ViewModels.Advertisement
         [Required(ErrorMessage = "To pole jest wymagane")]
         public DateTime ValidTo { get; set; }
         public int AnimalTypeId { get; set; }
+        public HttpPostedFileBase FileUpload { get; set; }
+        public byte[] bytePhoto { get; set; }
+        public Image PhotoFromBytes { get; set; }
 
         public IEnumerable<SelectListItem> AnimalTypes
         {

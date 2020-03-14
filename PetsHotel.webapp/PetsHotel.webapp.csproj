@@ -363,6 +363,7 @@
     <Content Include="Views\Advertisement\CatAdvertisements.cshtml" />
     <Content Include="Views\Advertisement\OtherAdvertisements.cshtml" />
     <Content Include="Views\Advertisement\Advertisement.cshtml" />
+    <Content Include="Views\Advertisement\_AdTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
