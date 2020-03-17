@@ -2,7 +2,7 @@
 @using PetsHotel.webapp.Helpers;
 @Styles.Render("~/Content/css")
 
-<div>
+<div>// get ---> model.TypeAdTemplate {1,2,3}
     <div>@Html.TextBox("Filter", null, new { @class = "filter-input", placeholder = "Filter" })</div>
     @foreach (var item in Model)
     {

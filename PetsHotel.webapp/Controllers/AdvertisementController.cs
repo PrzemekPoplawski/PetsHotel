@@ -56,9 +56,9 @@ namespace PetsHotel.webapp.Controllers
 
         }
         [HttpGet]
-        public ActionResult DogAdvertisements()
+        public ActionResult AnimalAdvertisements(int animalTypeId)
         {
-            var entity = _advertisementService.GetAllAdvertisement().Where(p => p.AnimalTypeId == 1).ToList();
+            var entity = _advertisementService.GetAllAdvertisement().Where(p => p.AnimalTypeId == animalTypeId).ToList();
 
             var model = entity.Select(p => new AdvertisementTemplate
             {
@@ -73,41 +73,7 @@ namespace PetsHotel.webapp.Controllers
             }).ToList();
 
             return View(model);
-        }
-        [HttpGet]
-        public ActionResult CatAdvertisements()
-        {
-            var model = _advertisementService.GetAllAdvertisement().Where(p=>p.AnimalTypeId==2).Select(p=> new AdvertisementTemplate
-            {
-                Title = p.Title,
-                Adress = p.Adress,
-                Description = p.Description,
-                ValidFrom = p.ValidFrom,
-                ValidTo = p.ValidTo,
-                bytePhoto = p.PhotoConversion,
-                AdvertisementId = p.AdvertisementId,
-                UserId = p.UserId
-            }).ToList();
-
-            return View(model);
-        }
-        [HttpGet]
-        public ActionResult OtherAdvertisements()
-        {
-           var model = _advertisementService.GetAllAdvertisement().Where(p=>p.AnimalTypeId==3).Select(p=> new AdvertisementTemplate
-           {
-               Title = p.Title,
-               Adress = p.Adress,
-               Description = p.Description,
-               ValidFrom = p.ValidFrom,
-               ValidTo = p.ValidTo,
-               bytePhoto = p.PhotoConversion,
-               AdvertisementId = p.AdvertisementId,
-               UserId = p.UserId
-           }).ToList();
-
-            return View(model);
-        }
+        } 
        [HttpGet]
         public ActionResult EditAd(int Id)
         {
@@ -140,7 +106,7 @@ namespace PetsHotel.webapp.Controllers
 
             _advertisementService.Save();
 
-            return View("~/Views/Advertisement/DogAdvertisement.cshtml");
+            return RedirectToAction("AnimalAdvertisements", model.AnimalTypeId);
         }
 
     }
