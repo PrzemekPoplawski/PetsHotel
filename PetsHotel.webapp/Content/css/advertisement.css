@@ -8,6 +8,8 @@
     margin-bottom: 20px;
     border-radius: 25px;
     border-style:solid;
+    width:1150px;
+    height:200px;
 }
 .title-show {
     font-size: 30px;
@@ -16,10 +18,16 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-family: Impact;
     color: #32CD32;
+    float:left;
+}
+.Edit{
+    float:left;
+    margin: 10px 5px 5px 7px;
 }
 .showAd-inner {
     margin-left: 40px;
     margin-bottom: 5px;
+    clear:both
 }
 .ad-description {
     text-align: right;
@@ -33,4 +41,19 @@
     font-weight: bold;
     color: #32CD32;
     font-size:15px;
+}
+.firstBlock{
+    float:left;
+}
+.show-photo {
+    float: right;
+    margin: 10px 15px 10px 10px;
+    border:5px solid;
+}
+#clear{
+    clear:both;
+}
+.filter-input{
+    width:300px;
+    background-color:aqua;
 }

@@ -12,7 +12,6 @@ namespace PetsHotel.webapp.ViewModels.Advertisement
     {
         public int AdvertisementId { get; set; }
         public int UserId { get; set; }
-        public int AnimalId { get; set; }
         [Display(Name ="Tytuł:")]
         [Required(ErrorMessage ="To pole jest wymagane")]
         public string Title { get; set; }

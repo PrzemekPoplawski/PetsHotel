@@ -1,12 +1,9 @@
 ﻿@model PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate
-
-
 @{
     ViewBag.title = "Advertisement";
 }
 
 @Styles.Render("~/Content/css/advertisement.css")
-
 
 <!DOCTYPE html>
 
@@ -39,7 +36,6 @@
         <tr>
             <td>
                 @Html.LabelFor(x => x.Adress)
-
             </td>
             <td>
                 @Html.TextBoxFor(x => x.Adress, new { placeholder = " Ulica i miejscowość", @class="adv-input" })
@@ -56,7 +52,6 @@
         <tr>
             <td>
                 @Html.LabelFor(x => x.ValidFrom)
-
             </td>
             <td>
                 @Html.TextBoxFor(x => x.ValidFrom, new { type = "date", @class = "adv-input" })
@@ -65,7 +60,6 @@
         <tr>
             <td>
                 @Html.LabelFor(x => x.ValidTo)
-
             </td>
             <td>
                 @Html.TextBoxFor(x => x.ValidTo, new { type = "date", @class = "adv-input" })

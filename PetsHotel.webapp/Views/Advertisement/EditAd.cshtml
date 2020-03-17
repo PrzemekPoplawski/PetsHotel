@@ -1,0 +1,73 @@
+﻿@model PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate
+@{
+    ViewBag.title = "EditAd";
+}
+
+<!DOCTYPE html>
+
+    <div>
+        @using (Html.BeginForm("EditAd", "Advertisement", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <div>Edytuj ogłoszenie</div>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <input type="hidden" id="AdId" class="AdId" value="@Model.AdvertisementId" />
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div>
+                @Html.LabelFor(model => model.AnimalTypeId)
+
+                @Html.DropDownListFor(model => model.AnimalTypeId, new List<SelectListItem>
+               {
+                 new SelectListItem{Text="Dog",Value="1"},
+                new SelectListItem{Text="Cat",Value="2"},
+                new SelectListItem{Text="Other",Value="3"}
+               })
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "000-000-000" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.ValidFrom, new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ValidFrom, new { type = "date"})
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(model => model.ValidTo, new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ValidTo, new { type = "date" })
+                    </div>
+                </div>
+            </div>
+
+            <br />
+                        <input type="submit" value="Zapisz" class="btn btn-primary mb-2" id="@Model.AdvertisementId" />
+                   <br />
+                
+        }
+
+    </div>
+

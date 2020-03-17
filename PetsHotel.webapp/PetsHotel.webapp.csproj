@@ -364,6 +364,7 @@
     <Content Include="Views\Advertisement\OtherAdvertisements.cshtml" />
     <Content Include="Views\Advertisement\Advertisement.cshtml" />
     <Content Include="Views\Advertisement\_AdTemplate.cshtml" />
+    <Content Include="Views\Advertisement\EditAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

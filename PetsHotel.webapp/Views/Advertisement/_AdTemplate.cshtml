@@ -1,34 +1,42 @@
 ﻿@model IEnumerable<PetsHotel.webapp.ViewModels.Advertisement.AdvertisementTemplate>
+@using PetsHotel.webapp.Helpers;
+@Styles.Render("~/Content/css")
 
 <div>
+    <div>@Html.TextBox("Filter", null, new { @class = "filter-input", placeholder = "Filter" })</div>
     @foreach (var item in Model)
     {
-
         <div class="showAd-template">
-
-            <div class="title-show">
-                @Html.DisplayFor(modelitem => item.Title)
-            </div>
-            <div class="ad-description">
-                @Html.DisplayFor(modelItem => item.Description)
-            </div>
-            <div class="showAd-inner">
-                <div>
-                    <div class="solid-font">Od kiedy:</div>  @Html.DisplayFor(modelitem => item.ValidFrom)
+            <div class="firstBlock">
+                <div class="title-show">
+                    @Html.DisplayFor(modelitem => item.Title)
                 </div>
-                <div>
-                    <div class="solid-font">Do kiedy:</div> @Html.DisplayFor(modelitem => item.ValidTo)
+                <div class="Edit">
+                    @if (item.UserId == @Html.IdentityExtension().UserId)
+                    {
+                        @Html.ActionLink("Edytuj", "EditAd", "Advertisement", new { id = item.AdvertisementId, @class = "Edit" }, null)
+                    }
                 </div>
-                <div>
-                    <div class="solid-font">Adres: </div>@Html.DisplayFor(modelItem => item.Adress)
-                </div>
-                <div>
+                <div class="showAd-inner">
                     <div>
-                    @Html.DisplayFor(modelItem => @PetsHotel.webapp.Helpers.ImageConverter.byteArrayToImage(item.bytePhoto))</div>
+                        <div class="solid-font">Od kiedy:</div>  @Html.DisplayFor(modelitem => item.ValidFrom)
+                    </div>
+                    <div>
+                        <div class="solid-font">Do kiedy:</div> @Html.DisplayFor(modelitem => item.ValidTo)
+                    </div>
+                    <div>
+                        <div class="solid-font">Adres: </div>@Html.DisplayFor(modelItem => item.Adress)
+                    </div>
                 </div>
             </div>
-
+            <div class="show-photo">
+                @{
+                    var base64 = Convert.ToBase64String(item.bytePhoto);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                }
+                <img src="@imgSrc" width="160" height="160" />
+            </div>
         </div>
-
     }
 </div>
+
