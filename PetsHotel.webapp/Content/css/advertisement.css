@@ -53,7 +53,13 @@
 #clear{
     clear:both;
 }
-.filter-input{
-    width:300px;
-    background-color:aqua;
+.filter-container{
+    margin:5px 5px 5px 5px;
+}
+.filter-textbox{
+    width:600px;
+    height:35px;
+    float:left;
+    border-radius:50px;
+    border:solid;
 }

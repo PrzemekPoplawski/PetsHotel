@@ -359,12 +359,11 @@
     <Content Include="Scripts\MyScripts\Buttons-1.6.1\css\mixins.scss" />
     <Content Include="Views\Animal\_TestAnimalList.cshtml" />
     <Content Include="Views\Animal\TestAnimalList.cshtml" />
-    <Content Include="Views\Advertisement\DogAdvertisements.cshtml" />
-    <Content Include="Views\Advertisement\CatAdvertisements.cshtml" />
-    <Content Include="Views\Advertisement\OtherAdvertisements.cshtml" />
+    <Content Include="Views\Advertisement\AnimalAdvertisements.cshtml" />
     <Content Include="Views\Advertisement\Advertisement.cshtml" />
     <Content Include="Views\Advertisement\_AdTemplate.cshtml" />
     <Content Include="Views\Advertisement\EditAd.cshtml" />
+    <Content Include="Views\Advertisement\_AdvertisementFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

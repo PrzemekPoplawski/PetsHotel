@@ -55,10 +55,18 @@ namespace PetsHotel.webapp.Controllers
             return View("~/Views/Home/Index.cshtml");
 
         }
+
+
+
         [HttpGet]
-        public ActionResult AnimalAdvertisements(int animalTypeId)
+        public ActionResult AnimalAdvertisements(int? animalTypeId, string filter)
         {
-            var entity = _advertisementService.GetAllAdvertisement().Where(p => p.AnimalTypeId == animalTypeId).ToList();
+            var entity = _advertisementService.GetAllAdvertisement().ToList();
+            if (filter != null && filter != "")
+            {
+                entity = _advertisementService.GetAllAdvertisement().Where(p => p.Title.Contains(filter)).ToList();
+            }
+
 
             var model = entity.Select(p => new AdvertisementTemplate
             {
@@ -74,6 +82,18 @@ namespace PetsHotel.webapp.Controllers
 
             return View(model);
         } 
+
+        public ActionResult FilterAdvertisement(string filter = "", int? animalTypeId = null)
+        {
+            var entity = _advertisementService.GetAllAdvertisement().Where(p => p.AnimalTypeId == animalTypeId).ToList();
+
+            if (filter != null && filter != "")
+            {
+                entity = _advertisementService.GetAllAdvertisement().Where(p => p.Title.Contains(filter)).ToList();
+            }
+
+           return RedirectToAction("AnimalAdvertisements", new {filter, animalTypeId});
+        }
        [HttpGet]
         public ActionResult EditAd(int Id)
         {
@@ -97,6 +117,7 @@ namespace PetsHotel.webapp.Controllers
         {
             var model = _advertisementService.GetAllAdvertisement().Where(p => p.AdvertisementId == id).FirstOrDefault();
 
+            model.Title = template.Title;
             model.Adress = template.Adress;
             model.AnimalTypeId = template.AnimalTypeId;
             model.Description = template.Description;
@@ -106,8 +127,13 @@ namespace PetsHotel.webapp.Controllers
 
             _advertisementService.Save();
 
-            return RedirectToAction("AnimalAdvertisements", model.AnimalTypeId);
+            return RedirectToAction("AnimalAdvertisements", new { animalTypeId = model.AnimalTypeId } );
         }
 
+    }
+
+    public class FilterClass
+    {
+        public string Filter { get; set; }
     }
 }

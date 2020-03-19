@@ -1,0 +1,9 @@
+﻿@Styles.Render("~/Content/css/advertisement.css")
+
+<div class="filter-container">
+@using (Html.BeginForm("FilterAdvertisement", "Advertisement",FormMethod.Post,new { role = "form"}))
+{
+    <div>@Html.TextBox("Filter",null,new { @class="filter-textbox"})</div>
+    <div class="filter-input"><input type="submit" value="Szukaj" class = "btn btn-success"/></div>
+}
+</div>
