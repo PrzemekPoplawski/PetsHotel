@@ -61,7 +61,7 @@ namespace PetsHotel.webapp.Controllers
         [HttpGet]
         public ActionResult AnimalAdvertisements(int? animalTypeId, string filter)
         {
-            var entity = _advertisementService.GetAllAdvertisement().ToList();
+            var entity = _advertisementService.GetAllAdvertisement().Where(a=>a.AnimalTypeId == animalTypeId).ToList();
             if (filter != null && filter != "")
             {
                 entity = _advertisementService.GetAllAdvertisement().Where(p => p.Title.Contains(filter)).ToList();
